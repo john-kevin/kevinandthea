@@ -2005,7 +2005,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.10</span>
+    <span>v0.0.11</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2622,6 +2622,17 @@
 
       startAutoplay();
 
+      // Pause timers when tab is hidden, resume when visible — saves battery on mobile
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          stopAutoplay();
+          if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+        } else {
+          startAutoplay();
+          if (!countdownTimer) { updateCountdown(); countdownTimer = setInterval(updateCountdown, 1000); }
+        }
+      });
+
       // ===== COUNTDOWN =====
       var weddingDate = new Date('2026-12-04T15:00:00+08:00').getTime();
       var cdDays = document.getElementById('cd-days');
@@ -2656,7 +2667,12 @@
       // ===== SCROLL REVEAL =====
       var reveals = document.querySelectorAll('.reveal');
       var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
       }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
       reveals.forEach(function(el) { observer.observe(el); });
 
@@ -2665,7 +2681,10 @@
       var galleryItems = document.querySelectorAll('.gallery-stagger');
       var galleryObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
-          if (e.isIntersecting) e.target.classList.add('visible');
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            galleryObserver.unobserve(e.target);
+          }
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
       galleryItems.forEach(function(el) { galleryObserver.observe(el); });
