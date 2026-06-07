@@ -1014,6 +1014,7 @@
     }
 
     .swatch-circle {
+      position: relative;
       width: 56px;
       height: 56px;
       border-radius: 50%;
@@ -2038,7 +2039,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.13</span>
+    <span>v0.0.14</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2904,33 +2905,82 @@
       var swatches = document.querySelectorAll('.swatch-circle');
       var originalBg = getComputedStyle(dressSection).backgroundColor;
       var activeSwatch = null;
+      var swatchRafId = null;
+      var swatchStartTime = null;
+      var SWATCH_DURATION = 5000;
+
+      function clearSwatchTimer() {
+        if (swatchRafId) { cancelAnimationFrame(swatchRafId); swatchRafId = null; }
+        document.querySelectorAll('.swatch-timer-svg').forEach(function(el) { el.remove(); });
+      }
+
+      function resetSwatchColor() {
+        clearSwatchTimer();
+        dressSection.style.backgroundColor = originalBg;
+        if (activeSwatch) { activeSwatch = null; }
+      }
+
+      function startSwatchTimer(swatch) {
+        clearSwatchTimer();
+        var size = swatch.offsetWidth;
+        var r = Math.round(size / 2) - 2;
+        var circ = 2 * Math.PI * r;
+
+        var ns = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('class', 'swatch-timer-svg');
+        svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
+        svg.style.cssText = 'position:absolute;top:-4px;left:-4px;'
+          + 'width:calc(100% + 8px);height:calc(100% + 8px);'
+          + 'pointer-events:none;transform:rotate(-90deg);z-index:3;overflow:visible;';
+
+        var circle = document.createElementNS(ns, 'circle');
+        circle.setAttribute('cx', size / 2);
+        circle.setAttribute('cy', size / 2);
+        circle.setAttribute('r', r);
+        circle.setAttribute('fill', 'none');
+        circle.setAttribute('stroke', 'rgba(255,255,255,0.9)');
+        circle.setAttribute('stroke-width', '3');
+        circle.setAttribute('stroke-linecap', 'round');
+        circle.setAttribute('stroke-dasharray', circ);
+        circle.setAttribute('stroke-dashoffset', '0');
+
+        svg.appendChild(circle);
+        swatch.appendChild(svg);
+
+        swatchStartTime = performance.now();
+
+        function frame(ts) {
+          var progress = Math.min((ts - swatchStartTime) / SWATCH_DURATION, 1);
+          circle.setAttribute('stroke-dashoffset', circ * progress);
+          if (progress < 1) {
+            swatchRafId = requestAnimationFrame(frame);
+          } else {
+            resetSwatchColor();
+          }
+        }
+        swatchRafId = requestAnimationFrame(frame);
+      }
 
       swatches.forEach(function(swatch) {
         swatch.addEventListener('click', function() {
           dressSection.style.transition = 'background-color 0.5s ease';
           if (activeSwatch === swatch) {
-            // Same swatch clicked again — toggle back to original
-            dressSection.style.backgroundColor = originalBg;
-            swatch.style.outline = '';
-            activeSwatch = null;
+            // Same swatch — toggle off
+            resetSwatchColor();
           } else {
-            // New swatch — switch color and mark active
-            if (activeSwatch) activeSwatch.style.outline = '';
+            // New swatch — switch and start timer
+            activeSwatch = swatch;
             var color = swatch.style.background || swatch.style.backgroundColor;
             dressSection.style.backgroundColor = color;
-            swatch.style.outline = '3px solid rgba(255,255,255,0.7)';
-            swatch.style.outlineOffset = '3px';
-            activeSwatch = swatch;
+            startSwatchTimer(swatch);
           }
         });
       });
 
-      // Double-click to reset
+      // Double-click anywhere on section to reset
       dressSection.addEventListener('dblclick', function(e) {
-        if (!e.target.classList.contains('swatch-circle')) {
-          dressSection.style.backgroundColor = originalBg;
-          if (activeSwatch) { activeSwatch.style.outline = ''; activeSwatch = null; }
-        }
+        if (!e.target.classList.contains('swatch-circle')) resetSwatchColor();
       });
 
       // ===== DRESS GUIDE LIGHTBOX =====
