@@ -828,6 +828,12 @@
       border: 1px solid rgba(122, 140, 110, 0.1);
       border-radius: 3px;
     }
+    .venue-qr canvas,
+    .venue-qr img {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
 
     .venue-qr-label {
       font-family: 'Cormorant Garamond', serif;
@@ -2381,7 +2387,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.18</span>
+    <span>v0.0.19</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2645,14 +2651,21 @@
         <div class="schedule-line"></div>
         <div class="schedule-event">
           <div class="schedule-event-title">Cocktail Hour</div>
-          <div class="schedule-event-venue">Angel Gabriel's Garden</div>
+          <div class="schedule-event-venue">While we steal a moment for our ballroom portraits —<br>enjoy the Grazing Table · Live Acoustic · Caricature · Photobooth</div>
         </div>
 
         <div class="schedule-time">5:00 PM</div>
         <div class="schedule-line"></div>
         <div class="schedule-event">
-          <div class="schedule-event-title">Dinner & Party</div>
-          <div class="schedule-event-venue">Reception celebration</div>
+          <div class="schedule-event-title">Reception & Dinner</div>
+          <div class="schedule-event-venue">Program · Dinner · SDE Screening</div>
+        </div>
+
+        <div class="schedule-time">8:00 PM</div>
+        <div class="schedule-line"></div>
+        <div class="schedule-event">
+          <div class="schedule-event-title">Send-off</div>
+          <div class="schedule-event-venue">End of celebration</div>
         </div>
       </div>
     </div>
@@ -2701,8 +2714,31 @@
         <!-- Travel path -->
         <div class="venue-path">
           <!-- Vertical path (mobile) -->
-          <svg class="venue-path-mobile" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30,5 Q18,30 30,60 Q42,90 30,115" stroke="#7A8C6E" stroke-width="2" stroke-dasharray="5 4" opacity="0.35" fill="none"/>
+          <svg class="venue-path-mobile" viewBox="0 0 60 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30,18 Q18,40 30,65 Q42,90 30,112" stroke="#7A8C6E" stroke-width="2" stroke-dasharray="5 4" opacity="0.35" fill="none"/>
+            <!-- Church / INC (source/top) -->
+            <g transform="translate(23,0)" opacity="0.82">
+              <!-- Flag pole -->
+              <line x1="7" y1="0.2" x2="7" y2="4.5" stroke="#5A7A4E" stroke-width="0.9" stroke-linecap="round"/>
+              <!-- INC flag: green, white, red -->
+              <rect x="7" y="0.2" width="6.5" height="1.4" rx="0.2" fill="#2E7D32"/>
+              <rect x="7" y="1.6" width="6.5" height="1.4" fill="#F5EDE3"/>
+              <rect x="7" y="3.0" width="6.5" height="1.4" rx="0.2" fill="#C62828"/>
+              <!-- Church roof & body -->
+              <polygon points="7,4.5 14,8.5 0,8.5" fill="#7A8C6E" opacity="0.75"/>
+              <rect x="1" y="8.5" width="12" height="9" rx="1" fill="#7A8C6E" opacity="0.62"/>
+              <rect x="4.5" y="12.5" width="5" height="5" rx="0.8" fill="#FDF8F0" opacity="0.55"/>
+            </g>
+            <!-- Garden / flower (destination/bottom) -->
+            <g transform="translate(23,112)" opacity="0.82">
+              <line x1="7" y1="16" x2="7" y2="10" stroke="#7A8C6E" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M7,12 Q10.5,10 12,12" stroke="#7A8C6E" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+              <circle cx="7" cy="6" r="2.2" fill="#D4A69A" opacity="0.72"/>
+              <circle cx="3.5" cy="9" r="2" fill="#D4A69A" opacity="0.62"/>
+              <circle cx="10.5" cy="9" r="2" fill="#D4A69A" opacity="0.62"/>
+              <circle cx="7" cy="11.5" r="2" fill="#D4A69A" opacity="0.62"/>
+              <circle cx="7" cy="8.5" r="2.4" fill="#B8944F" opacity="0.85"/>
+            </g>
             <g class="venue-path-car">
               <!-- Car body -->
               <rect x="18" y="48" width="24" height="16" rx="5" fill="#C17A56"/>
@@ -2716,13 +2752,36 @@
             </g>
           </svg>
           <!-- Horizontal path (desktop) -->
-          <svg class="venue-path-desktop" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,20 Q35,8 70,20 Q105,32 140,20" stroke="#7A8C6E" stroke-width="2" stroke-dasharray="5 4" opacity="0.4" fill="none"/>
+          <svg class="venue-path-desktop" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18,20 Q52,8 80,20 Q108,32 142,20" stroke="#7A8C6E" stroke-width="2" stroke-dasharray="5 4" opacity="0.4" fill="none"/>
+            <!-- Church / INC (source/left) -->
+            <g transform="translate(2,10)" opacity="0.82">
+              <!-- Flag pole -->
+              <line x1="7" y1="0.2" x2="7" y2="3.8" stroke="#5A7A4E" stroke-width="0.9" stroke-linecap="round"/>
+              <!-- INC flag: green, white, red -->
+              <rect x="7" y="0.2" width="6" height="1.2" rx="0.2" fill="#2E7D32"/>
+              <rect x="7" y="1.4" width="6" height="1.2" fill="#F5EDE3"/>
+              <rect x="7" y="2.6" width="6" height="1.2" rx="0.2" fill="#C62828"/>
+              <!-- Church roof & body -->
+              <polygon points="7,3.8 13.5,7.5 0.5,7.5" fill="#7A8C6E" opacity="0.75"/>
+              <rect x="1" y="7.5" width="12" height="9" rx="1" fill="#7A8C6E" opacity="0.62"/>
+              <rect x="4" y="11" width="6" height="5.5" rx="0.8" fill="#FDF8F0" opacity="0.55"/>
+            </g>
+            <!-- Garden / flower (destination/right) -->
+            <g transform="translate(143,10)" opacity="0.82">
+              <line x1="7" y1="16" x2="7" y2="11" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round"/>
+              <path d="M7,13 Q9.5,11.5 11,13" stroke="#7A8C6E" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+              <circle cx="7" cy="6.5" r="2" fill="#D4A69A" opacity="0.72"/>
+              <circle cx="3.8" cy="9.5" r="1.8" fill="#D4A69A" opacity="0.62"/>
+              <circle cx="10.2" cy="9.5" r="1.8" fill="#D4A69A" opacity="0.62"/>
+              <circle cx="7" cy="11.5" r="1.8" fill="#D4A69A" opacity="0.62"/>
+              <circle cx="7" cy="9" r="2.2" fill="#B8944F" opacity="0.85"/>
+            </g>
             <g class="venue-path-car">
-              <rect x="60" y="14" width="20" height="12" rx="4" fill="#C17A56" opacity="0.85"/>
-              <rect x="63" y="10" width="14" height="7" rx="3" fill="#C17A56" opacity="0.6"/>
-              <circle cx="64" cy="28" r="3" fill="#3D2E1F" opacity="0.4"/>
-              <circle cx="76" cy="28" r="3" fill="#3D2E1F" opacity="0.4"/>
+              <rect x="70" y="14" width="20" height="12" rx="4" fill="#C17A56" opacity="0.85"/>
+              <rect x="73" y="10" width="14" height="7" rx="3" fill="#C17A56" opacity="0.6"/>
+              <circle cx="74" cy="28" r="3" fill="#3D2E1F" opacity="0.4"/>
+              <circle cx="86" cy="28" r="3" fill="#3D2E1F" opacity="0.4"/>
             </g>
           </svg>
           <span class="venue-path-label">~15 min drive</span>
@@ -3861,20 +3920,29 @@
       });
 
       // ===== QR CODES =====
+      var qrGenerated = false;
       function generateQR() {
         if (typeof QRCode === 'undefined') return false;
+        if (qrGenerated) return true;
         var size = window.innerWidth < 400 ? 110 : 130;
         var opts = { width: size, height: size, colorDark: '#3D2E1F', colorLight: '#FDF8F0', correctLevel: QRCode.CorrectLevel.M };
-
         try {
-          new QRCode(document.getElementById('qr-ceremony'), Object.assign({}, opts, {
+          var elCeremony = document.getElementById('qr-ceremony');
+          var elReception = document.getElementById('qr-reception');
+          elCeremony.innerHTML = '';
+          elReception.innerHTML = '';
+          new QRCode(elCeremony, Object.assign({}, opts, {
             text: 'https://www.google.com/maps/search/?api=1&query=Ciudad+de+Victoria+Philippine+Arena+Bocaue+Bulacan'
           }));
-          new QRCode(document.getElementById('qr-reception'), Object.assign({}, opts, {
+          new QRCode(elReception, Object.assign({}, opts, {
             text: 'https://www.google.com/maps/search/?api=1&query=Angel+Gabriels+Garden+146+JP+Rizal+St+San+Gabriel+Santa+Maria+Bulacan'
           }));
-        } catch (e) { console.warn('QR generation failed', e); }
-        return true;
+          qrGenerated = true;
+          return true;
+        } catch (e) {
+          console.warn('QR generation failed', e);
+          return false;
+        }
       }
 
       function waitForQR(attempts) {
