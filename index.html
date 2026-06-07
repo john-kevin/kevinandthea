@@ -2038,7 +2038,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.12</span>
+    <span>v0.0.13</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2903,12 +2903,25 @@
       var dressSection = document.querySelector('.dresscode-section');
       var swatches = document.querySelectorAll('.swatch-circle');
       var originalBg = getComputedStyle(dressSection).backgroundColor;
+      var activeSwatch = null;
 
       swatches.forEach(function(swatch) {
         swatch.addEventListener('click', function() {
-          var color = swatch.style.background || swatch.style.backgroundColor;
           dressSection.style.transition = 'background-color 0.5s ease';
-          dressSection.style.backgroundColor = color;
+          if (activeSwatch === swatch) {
+            // Same swatch clicked again — toggle back to original
+            dressSection.style.backgroundColor = originalBg;
+            swatch.style.outline = '';
+            activeSwatch = null;
+          } else {
+            // New swatch — switch color and mark active
+            if (activeSwatch) activeSwatch.style.outline = '';
+            var color = swatch.style.background || swatch.style.backgroundColor;
+            dressSection.style.backgroundColor = color;
+            swatch.style.outline = '3px solid rgba(255,255,255,0.7)';
+            swatch.style.outlineOffset = '3px';
+            activeSwatch = swatch;
+          }
         });
       });
 
@@ -2916,6 +2929,7 @@
       dressSection.addEventListener('dblclick', function(e) {
         if (!e.target.classList.contains('swatch-circle')) {
           dressSection.style.backgroundColor = originalBg;
+          if (activeSwatch) { activeSwatch.style.outline = ''; activeSwatch = null; }
         }
       });
 
