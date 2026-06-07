@@ -231,7 +231,7 @@
       .reveal.visible { opacity: 1; transform: none; }
       .carousel-slide-image { animation: none !important; }
       .leaf-sway, .leaf-sway-alt { animation: none !important; }
-      .carousel-track { transition-duration: 0.01s !important; }
+      .carousel-slide { transition-duration: 0.01s !important; }
       .falling-leaves { display: none; }
     }
 
@@ -259,17 +259,18 @@
     .carousel-track {
       position: absolute;
       inset: 0;
-      display: flex;
-      will-change: transform;
     }
 
     .carousel-slide {
-      min-width: 100%;
-      height: 100vh;
-      height: 100dvh;
-      min-height: 500px;
-      position: relative;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.1s ease;
       overflow: hidden;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
     }
 
     .carousel-slide-image {
@@ -278,6 +279,11 @@
       object-fit: cover;
       will-change: transform;
       animation: ken-burns 14s ease-in-out alternate infinite;
+      animation-play-state: paused;
+    }
+
+    .carousel-slide.active .carousel-slide-image {
+      animation-play-state: running;
     }
 
     .carousel-slide-placeholder {
@@ -1177,16 +1183,7 @@
       line-height: 1.3;
     }
 
-    /* Playful scattered rotations + vertical offsets */
-    .gallery-item:nth-child(1)  { transform: rotate(-2deg); }
-    .gallery-item:nth-child(2)  { transform: rotate(2.2deg) translateY(-8px); }
-    .gallery-item:nth-child(3)  { transform: rotate(-1deg) translateY(6px); }
-    .gallery-item:nth-child(4)  { transform: rotate(1.5deg) translateY(-4px); }
-    .gallery-item:nth-child(5)  { transform: rotate(-2.5deg); }
-    .gallery-item:nth-child(6)  { transform: rotate(1.8deg) translateY(-10px); }
-    .gallery-item:nth-child(7)  { transform: rotate(-1.5deg) translateY(8px); }
-    .gallery-item:nth-child(8)  { transform: rotate(2.5deg) translateY(-6px); }
-    .gallery-item:nth-child(9)  { transform: rotate(-0.8deg) translateY(4px); }
+    /* Final resting tilts — applied by JS after assembly */
 
     /* Varied sizes — some span 2 rows or 2 columns */
     .gallery-item.span-tall {
@@ -1212,41 +1209,28 @@
       aspect-ratio: 2 / 1;
     }
 
-    .gallery-item:hover {
+    .gallery-item.assembled:hover {
+      animation: none;
       transform: rotate(0deg) scale(1.06) !important;
       box-shadow: 0 8px 28px rgba(61, 46, 31, 0.18);
       z-index: 2;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    /* Staggered reveal */
+    /* Gallery items — transform & opacity fully owned by JS scroll animation */
     .gallery-stagger {
       opacity: 0;
-      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .gallery-stagger.visible {
-      opacity: 1;
+    /* Idle sway once polaroids have landed */
+    @keyframes gallery-idle-sway {
+      from { transform: translateY(var(--gy)) rotate(calc(var(--gr) - 0.5deg)) scale(1); }
+      to   { transform: translateY(var(--gy)) rotate(calc(var(--gr) + 0.5deg)) scale(1); }
     }
 
-    .gallery-stagger:nth-child(1)  { transition-delay: 0s; }
-    .gallery-stagger:nth-child(2)  { transition-delay: 0.08s; }
-    .gallery-stagger:nth-child(3)  { transition-delay: 0.16s; }
-    .gallery-stagger:nth-child(4)  { transition-delay: 0.24s; }
-    .gallery-stagger:nth-child(5)  { transition-delay: 0.32s; }
-    .gallery-stagger:nth-child(6)  { transition-delay: 0.40s; }
-    .gallery-stagger:nth-child(7)  { transition-delay: 0.48s; }
-    .gallery-stagger:nth-child(8)  { transition-delay: 0.56s; }
-    .gallery-stagger:nth-child(9)  { transition-delay: 0.64s; }
-
-    .gallery-stagger.visible:nth-child(1)  { transform: rotate(-2deg); }
-    .gallery-stagger.visible:nth-child(2)  { transform: rotate(2.2deg) translateY(-8px); }
-    .gallery-stagger.visible:nth-child(3)  { transform: rotate(-1deg) translateY(6px); }
-    .gallery-stagger.visible:nth-child(4)  { transform: rotate(1.5deg) translateY(-4px); }
-    .gallery-stagger.visible:nth-child(5)  { transform: rotate(-2.5deg); }
-    .gallery-stagger.visible:nth-child(6)  { transform: rotate(1.8deg) translateY(-10px); }
-    .gallery-stagger.visible:nth-child(7)  { transform: rotate(-1.5deg) translateY(8px); }
-    .gallery-stagger.visible:nth-child(8)  { transform: rotate(2.5deg) translateY(-6px); }
-    .gallery-stagger.visible:nth-child(9)  { transform: rotate(-0.8deg) translateY(4px); }
+    .gallery-item.assembled {
+      animation: gallery-idle-sway var(--sway-dur, 5s) var(--sway-delay, 0s) ease-in-out infinite alternate;
+    }
 
     /* Responsive gallery */
     @media (max-width: 480px) {
@@ -2387,7 +2371,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.20</span>
+    <span>v0.0.21</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2504,7 +2488,7 @@
       <div class="carousel-slide">
         <img class="carousel-slide-image" src="carousel-2.jpg" alt="Kevin and Thea" style="object-position:center 60%;" loading="lazy" decoding="async">
       </div>
-      <div class="carousel-slide" style="position:relative;">
+      <div class="carousel-slide">
         <img src="carousel-3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(8px) brightness(0.6);transform:scale(1.1);" loading="lazy" decoding="async">
         <img class="carousel-slide-image" src="carousel-3.jpg" alt="Kevin and Thea" style="object-fit:contain;position:relative;z-index:1;" loading="lazy" decoding="async">
       </div>
@@ -3203,6 +3187,7 @@
     (function() {
       // ===== CAROUSEL =====
       var track = document.getElementById('carousel-track');
+      var slides = document.querySelectorAll('.carousel-slide');
       var dots = document.querySelectorAll('.carousel-dot');
       var prevBtn = document.getElementById('carousel-prev');
       var nextBtn = document.getElementById('carousel-next');
@@ -3216,13 +3201,19 @@
       var AUTOPLAY_MS = 6000;
       var PAUSE_AFTER_INTERACTION = 8000;
 
+      // Activate first slide on init
+      if (slides[0]) slides[0].classList.add('active');
+
       function goToSlide(i) {
+        var prevSlide = currentSlide;
         currentSlide = ((i % totalSlides) + totalSlides) % totalSlides;
-        track.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
-        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        slides[prevSlide].classList.remove('active');
+        slides[currentSlide].classList.add('active');
+        // Restart Ken Burns from scratch on the incoming slide
+        var kbImg = slides[currentSlide].querySelector('.carousel-slide-image');
+        if (kbImg) { kbImg.style.animation = 'none'; void kbImg.offsetWidth; kbImg.style.animation = ''; }
         dots.forEach(function(d, idx) { d.classList.toggle('active', idx === currentSlide); });
         resetProgress();
-        setTimeout(function() { track.style.transition = 'none'; }, 750);
       }
 
       function next() { goToSlide(currentSlide + 1); }
@@ -3343,17 +3334,114 @@
       reveals.forEach(function(el) { observer.observe(el); });
 
 
-      // ===== GALLERY STAGGER REVEAL =====
+      // ===== GALLERY SCROLL-LINKED ASSEMBLY =====
       var galleryItems = document.querySelectorAll('.gallery-stagger');
-      var galleryObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            galleryObserver.unobserve(e.target);
+      var gallerySection = document.getElementById('gallery');
+
+      // Scattered starting positions (before assembly)
+      var SCATTER = [
+        { tx: -220, ty: -140, rot: -42, scale: 0.55 },
+        { tx:  280, ty: -100, rot:  35, scale: 0.60 },
+        { tx: -160, ty:  210, rot: -28, scale: 0.50 },
+        { tx:  300, ty: -180, rot:  48, scale: 0.65 },
+        { tx: -260, ty:  130, rot: -50, scale: 0.55 },
+        { tx:  200, ty:  220, rot:  38, scale: 0.60 },
+        { tx: -300, ty: -110, rot: -44, scale: 0.50 },
+        { tx:  240, ty:  160, rot:  40, scale: 0.65 },
+        { tx: -140, ty:  280, rot: -25, scale: 0.55 }
+      ];
+
+      // Final resting tilts (polaroid aesthetic)
+      var FINAL = [
+        { tx: 0, ty:   0, rot: -2.0 },
+        { tx: 0, ty:  -8, rot:  2.2 },
+        { tx: 0, ty:   6, rot: -1.0 },
+        { tx: 0, ty:  -4, rot:  1.5 },
+        { tx: 0, ty:   0, rot: -2.5 },
+        { tx: 0, ty: -10, rot:  1.8 },
+        { tx: 0, ty:   8, rot: -1.5 },
+        { tx: 0, ty:  -6, rot:  2.5 },
+        { tx: 0, ty:   4, rot: -0.8 }
+      ];
+
+      function _lerp(a, b, t) { return a + (b - a) * t; }
+      function _clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+      // Back-ease-out: decelerates with a slight overshoot then settles (spring feel)
+      function _easeBackOut(t) {
+        var c1 = 0.85; // overshoot intensity — larger = more dramatic
+        var c3 = c1 + 1;
+        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+      }
+
+      // Set initial scattered state + CSS vars for sway (set once, static per item)
+      galleryItems.forEach(function(el, i) {
+        var s = SCATTER[i] || SCATTER[0];
+        var f = FINAL[i] || FINAL[0];
+        el.style.willChange = 'transform, opacity';
+        el.style.opacity = '0';
+        el.style.transform = 'translate(' + s.tx + 'px,' + s.ty + 'px) rotate(' + s.rot + 'deg) scale(' + s.scale + ')';
+        // CSS vars consumed by gallery-idle-sway keyframe once .assembled is applied
+        el.style.setProperty('--gy', f.ty + 'px');
+        el.style.setProperty('--gr', f.rot + 'deg');
+        el.style.setProperty('--sway-dur', (4.5 + i * 0.55).toFixed(2) + 's');
+        // Negative delay = start mid-cycle, so all photos sway at different phases
+        el.style.setProperty('--sway-delay', '-' + (i * 1.1).toFixed(1) + 's');
+      });
+
+      var _galleryRafPending = false;
+      function _updateGallery() {
+        _galleryRafPending = false;
+        if (!gallerySection) return;
+        var rect = gallerySection.getBoundingClientRect();
+        var vh = window.innerHeight;
+        // progress: 0 = gallery just enters viewport, 1 = assembly complete
+        var progress = _clamp01((vh * 0.95 - rect.top) / (vh * 1.2));
+
+        galleryItems.forEach(function(el, i) {
+          // Each item has its own assembly window within [0, 1]
+          var itemStart = i * 0.08;
+          var rawT = _clamp01((progress - itemStart) / 0.50);
+
+          if (rawT >= 1) {
+            // Fully assembled — hand off to CSS sway animation
+            if (!el.classList.contains('assembled')) {
+              el.classList.add('assembled');
+              el.style.willChange = 'auto';
+              el.style.opacity = '1';
+              el.style.transform = ''; // CSS animation takes over
+            }
+          } else {
+            // In flight, or re-scattering after scroll-up
+            if (el.classList.contains('assembled')) {
+              el.classList.remove('assembled');
+              el.style.willChange = 'transform, opacity';
+            }
+            // Apply spring overshoot: _easeBackOut can return > 1 near rawT=1
+            var t = _easeBackOut(rawT);
+            var s = SCATTER[i] || SCATTER[0];
+            var f = FINAL[i] || FINAL[0];
+            var tx    = _lerp(s.tx,    f.tx,  t);
+            var ty    = _lerp(s.ty,    f.ty,  t);
+            var rot   = _lerp(s.rot,   f.rot, t);
+            var scale = _lerp(s.scale, 1,     t);
+            // Fade in early — fully opaque by 40% of travel
+            var opacity = Math.min(1, rawT * 2.5);
+
+            el.style.opacity   = opacity;
+            el.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
           }
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
-      galleryItems.forEach(function(el) { galleryObserver.observe(el); });
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!_galleryRafPending) {
+          _galleryRafPending = true;
+          requestAnimationFrame(_updateGallery);
+        }
+      }, { passive: true });
+
+      // Run once on load in case gallery is already partially in view
+      _updateGallery();
 
       // ===== LIGHTBOX WITH NAVIGATION =====
       var lightbox = document.getElementById('lightbox');
