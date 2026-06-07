@@ -1720,21 +1720,73 @@
 
     /* ===== FOOTER ===== */
     .footer {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: var(--forest);
-      padding: 5rem 2rem;
       text-align: center;
+    }
+
+    .footer-bg {
+      position: absolute;
+      inset: -5%;
+      background: url('carousel-1.jpg') center center / cover no-repeat;
+      animation: ken-burns 20s ease-in-out alternate infinite;
+      z-index: 0;
+    }
+
+    .footer-overlay-dark {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 30, 20, 0.35) 0%,
+        rgba(20, 30, 20, 0.55) 50%,
+        rgba(20, 30, 20, 0.80) 100%
+      );
+      z-index: 1;
+    }
+
+    .footer-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(10,18,10,0.65) 100%);
+      z-index: 2;
+    }
+
+    .footer-content {
       position: relative;
+      z-index: 3;
+      padding: 4rem 2rem;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .footer-card {
+      background: rgba(20, 30, 20, 0.38);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(253, 248, 240, 0.12);
+      border-radius: 2px;
+      padding: 3rem 2.5rem 2.5rem;
+    }
+
+    .footer-leaf-divider {
+      margin: 1.2rem auto 1.4rem;
+      opacity: 0.45;
+      display: block;
     }
 
     .footer-names {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-size: clamp(2.6rem, 8vw, 4.2rem);
       color: var(--cream);
-      margin-bottom: 0.6rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+      margin-bottom: 0.4rem;
+      line-height: 1.1;
     }
 
     .footer-names .ampersand {
@@ -1747,20 +1799,30 @@
     .footer-date {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      font-size: 0.95rem;
-      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
       color: var(--dusty-rose);
-      margin-bottom: 1.5rem;
+      margin-bottom: 0;
     }
 
     .footer-message {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1rem;
-      color: rgba(253, 248, 240, 0.6);
-      max-width: 350px;
+      font-size: 1.05rem;
+      color: rgba(253, 248, 240, 0.75);
+      max-width: 340px;
       margin: 0 auto;
-      line-height: 1.8;
+      line-height: 1.9;
+    }
+
+    .footer-small {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(253, 248, 240, 0.25);
+      margin-top: 2.5rem;
     }
 
     /* ===== RESPONSIVE — Mobile First ===== */
@@ -1829,8 +1891,8 @@
       font-size: 1.2rem;
     }
 
-    .footer {
-      padding: 3.5rem 1.5rem;
+    .footer-card {
+      padding: 2.2rem 1.6rem 2rem;
     }
 
 
@@ -1875,8 +1937,8 @@
       .invitation-text { font-size: 1.15rem; }
       .invitation-highlight { font-size: 1.3rem; }
 
-      .footer {
-        padding: 4rem 2rem;
+      .footer-card {
+        padding: 2.8rem 2.2rem 2.4rem;
       }
     }
 
@@ -1944,8 +2006,8 @@
         font-size: 1.4rem;
       }
 
-      .footer {
-        padding: 4.5rem 2rem;
+      .footer-card {
+        padding: 3.5rem 3rem 3rem;
       }
 
     }
@@ -2039,7 +2101,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.14</span>
+    <span>v0.0.15</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2616,16 +2678,35 @@
     </div>
   </section>
 
-  <!-- PAGE 7: Footer (dark) -->
-  <footer class="page page-dark">
-    <div class="reveal">
-      <p class="footer-names">
-        Kevin <span class="ampersand">&amp;</span> Thea
-      </p>
-      <p class="footer-date">December 4, 2026</p>
-      <p class="footer-message">
-        We look forward to celebrating<br>this beautiful day with you.
-      </p>
+  <!-- PAGE 7: Closing photo section -->
+  <footer class="footer">
+    <div class="footer-bg"></div>
+    <div class="footer-overlay-dark"></div>
+    <div class="footer-vignette"></div>
+
+    <div class="footer-content reveal">
+      <div class="footer-card">
+        <p class="footer-names">
+          Kevin <span class="ampersand">&amp;</span> Thea
+        </p>
+        <p class="footer-date">December 4, 2026</p>
+
+        <!-- Botanical leaf divider -->
+        <svg class="footer-leaf-divider" width="160" height="20" viewBox="0 0 160 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="10" x2="58" y2="10" stroke="rgba(253,248,240,0.4)" stroke-width="0.8"/>
+          <path d="M72 10 Q80 2 88 10 Q80 18 72 10z" fill="none" stroke="rgba(212,166,154,0.7)" stroke-width="1"/>
+          <circle cx="80" cy="10" r="1.5" fill="rgba(212,166,154,0.8)"/>
+          <path d="M68 10 Q72 5 76 10" fill="none" stroke="rgba(122,140,110,0.5)" stroke-width="0.8"/>
+          <path d="M84 10 Q88 5 92 10" fill="none" stroke="rgba(122,140,110,0.5)" stroke-width="0.8"/>
+          <line x1="102" y1="10" x2="160" y2="10" stroke="rgba(253,248,240,0.4)" stroke-width="0.8"/>
+        </svg>
+
+        <p class="footer-message">
+          We look forward to celebrating<br>this beautiful day with you.
+        </p>
+      </div>
+
+      <p class="footer-small">Kevin &amp; Thea &bull; December 2026 &bull; Bulacan, Philippines</p>
     </div>
   </footer>
 
