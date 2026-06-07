@@ -1286,10 +1286,21 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    /* Gallery items — transform & opacity fully owned by JS scroll animation */
+    /* Gallery items — fade in on reveal, final tilt set by CSS */
     .gallery-stagger {
       opacity: 0;
+      transition: opacity 0.7s ease;
     }
+
+    .gallery-item:nth-child(1)  { transform: rotate(-2.0deg) translateY(0px); }
+    .gallery-item:nth-child(2)  { transform: rotate( 2.2deg) translateY(-8px); }
+    .gallery-item:nth-child(3)  { transform: rotate(-1.0deg) translateY(6px); }
+    .gallery-item:nth-child(4)  { transform: rotate( 1.5deg) translateY(-4px); }
+    .gallery-item:nth-child(5)  { transform: rotate(-2.5deg) translateY(0px); }
+    .gallery-item:nth-child(6)  { transform: rotate( 1.8deg) translateY(-10px); }
+    .gallery-item:nth-child(7)  { transform: rotate(-1.5deg) translateY(8px); }
+    .gallery-item:nth-child(8)  { transform: rotate( 2.5deg) translateY(-6px); }
+    .gallery-item:nth-child(9)  { transform: rotate(-0.8deg) translateY(4px); }
 
     /* Idle sway once polaroids have landed */
     @keyframes gallery-idle-sway {
@@ -1299,6 +1310,10 @@
 
     .gallery-item.assembled {
       animation: gallery-idle-sway var(--sway-dur, 5s) var(--sway-delay, 0s) ease-in-out infinite alternate;
+    }
+
+    .gallery-item.assembled.gallery-stagger {
+      opacity: 1;
     }
 
     /* Responsive gallery */
@@ -2521,7 +2536,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.24</span>
+    <span>v0.0.25</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -3536,114 +3551,38 @@
       dividers.forEach(function(el) { dividerObserver.observe(el); });
 
 
-      // ===== GALLERY SCROLL-LINKED ASSEMBLY =====
+      // ===== GALLERY STAGGER REVEAL =====
       var galleryItems = document.querySelectorAll('.gallery-stagger');
-      var gallerySection = document.getElementById('gallery');
 
-      // Scattered starting positions (before assembly)
-      var SCATTER = [
-        { tx: -220, ty: -140, rot: -42, scale: 0.55 },
-        { tx:  280, ty: -100, rot:  35, scale: 0.60 },
-        { tx: -160, ty:  210, rot: -28, scale: 0.50 },
-        { tx:  300, ty: -180, rot:  48, scale: 0.65 },
-        { tx: -260, ty:  130, rot: -50, scale: 0.55 },
-        { tx:  200, ty:  220, rot:  38, scale: 0.60 },
-        { tx: -300, ty: -110, rot: -44, scale: 0.50 },
-        { tx:  240, ty:  160, rot:  40, scale: 0.65 },
-        { tx: -140, ty:  280, rot: -25, scale: 0.55 }
+      // Final resting tilts for idle sway CSS vars
+      var _galFinal = [
+        { ty:   0, rot: -2.0 }, { ty:  -8, rot:  2.2 }, { ty:   6, rot: -1.0 },
+        { ty:  -4, rot:  1.5 }, { ty:   0, rot: -2.5 }, { ty: -10, rot:  1.8 },
+        { ty:   8, rot: -1.5 }, { ty:  -6, rot:  2.5 }, { ty:   4, rot: -0.8 }
       ];
 
-      // Final resting tilts (polaroid aesthetic)
-      var FINAL = [
-        { tx: 0, ty:   0, rot: -2.0 },
-        { tx: 0, ty:  -8, rot:  2.2 },
-        { tx: 0, ty:   6, rot: -1.0 },
-        { tx: 0, ty:  -4, rot:  1.5 },
-        { tx: 0, ty:   0, rot: -2.5 },
-        { tx: 0, ty: -10, rot:  1.8 },
-        { tx: 0, ty:   8, rot: -1.5 },
-        { tx: 0, ty:  -6, rot:  2.5 },
-        { tx: 0, ty:   4, rot: -0.8 }
-      ];
-
-      function _lerp(a, b, t) { return a + (b - a) * t; }
-      function _clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
-      // Back-ease-out: decelerates with a slight overshoot then settles (spring feel)
-      function _easeBackOut(t) {
-        var c1 = 0.85; // overshoot intensity — larger = more dramatic
-        var c3 = c1 + 1;
-        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-      }
-
-      // Set initial scattered state + CSS vars for sway (set once, static per item)
       galleryItems.forEach(function(el, i) {
-        var s = SCATTER[i] || SCATTER[0];
-        var f = FINAL[i] || FINAL[0];
-        el.style.willChange = 'transform, opacity';
-        el.style.opacity = '0';
-        el.style.transform = 'translate(' + s.tx + 'px,' + s.ty + 'px) rotate(' + s.rot + 'deg) scale(' + s.scale + ')';
-        // CSS vars consumed by gallery-idle-sway keyframe once .assembled is applied
+        var f = _galFinal[i] || _galFinal[0];
         el.style.setProperty('--gy', f.ty + 'px');
         el.style.setProperty('--gr', f.rot + 'deg');
         el.style.setProperty('--sway-dur', (4.5 + i * 0.55).toFixed(2) + 's');
-        // Negative delay = start mid-cycle, so all photos sway at different phases
         el.style.setProperty('--sway-delay', '-' + (i * 1.1).toFixed(1) + 's');
       });
 
-      var _galleryRafPending = false;
-      function _updateGallery() {
-        _galleryRafPending = false;
-        if (!gallerySection) return;
-        var rect = gallerySection.getBoundingClientRect();
-        var vh = window.innerHeight;
-        // progress: 0 = gallery just enters viewport, 1 = assembly complete
-        var progress = _clamp01((vh * 0.95 - rect.top) / (vh * 1.2));
-
-        galleryItems.forEach(function(el, i) {
-          // Each item has its own assembly window within [0, 1]
-          var itemStart = i * 0.08;
-          var rawT = _clamp01((progress - itemStart) / 0.50);
-
-          if (rawT >= 1) {
-            // Fully assembled — hand off to CSS sway animation
-            if (!el.classList.contains('assembled')) {
+      var galObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            var el = e.target;
+            var idx = Array.prototype.indexOf.call(galleryItems, el);
+            setTimeout(function() {
               el.classList.add('assembled');
-              el.style.willChange = 'auto';
-              el.style.opacity = '1';
-              el.style.transform = ''; // CSS animation takes over
-            }
-          } else {
-            // In flight, or re-scattering after scroll-up
-            if (el.classList.contains('assembled')) {
-              el.classList.remove('assembled');
-              el.style.willChange = 'transform, opacity';
-            }
-            // Apply spring overshoot: _easeBackOut can return > 1 near rawT=1
-            var t = _easeBackOut(rawT);
-            var s = SCATTER[i] || SCATTER[0];
-            var f = FINAL[i] || FINAL[0];
-            var tx    = _lerp(s.tx,    f.tx,  t);
-            var ty    = _lerp(s.ty,    f.ty,  t);
-            var rot   = _lerp(s.rot,   f.rot, t);
-            var scale = _lerp(s.scale, 1,     t);
-            // Fade in early — fully opaque by 40% of travel
-            var opacity = Math.min(1, rawT * 2.5);
-
-            el.style.opacity   = opacity;
-            el.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
+            }, idx * 90);
+            galObserver.unobserve(el);
           }
         });
-      }
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-      window.addEventListener('scroll', function() {
-        if (!_galleryRafPending) {
-          _galleryRafPending = true;
-          requestAnimationFrame(_updateGallery);
-        }
-      }, { passive: true });
-
-      // Run once on load in case gallery is already partially in view
-      _updateGallery();
+      galleryItems.forEach(function(el) { galObserver.observe(el); });
 
       // ===== LIGHTBOX WITH NAVIGATION =====
       var lightbox = document.getElementById('lightbox');
