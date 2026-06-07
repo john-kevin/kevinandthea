@@ -1,0 +1,2648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin & Thea | December 4, 2026</title>
+  <meta name="description" content="Join us as we celebrate the wedding of Kevin Soriano and Thea Ravida on December 4, 2026 in Bulacan, Philippines.">
+  <meta name="theme-color" content="#7A8C6E">
+  <meta property="og:title" content="Kevin & Thea — Wedding Celebration">
+  <meta property="og:description" content="You're invited to our garden wedding. December 4, 2026 — Bulacan, Philippines">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDF8F0;
+      --linen: #F5EDE3;
+      --sage: #7A8C6E;
+      --terracotta: #C17A56;
+      --espresso: #3D2E1F;
+      --dusty-rose: #D4A69A;
+      --gold: #B8944F;
+      --forest: #2C3A2A;
+      --sage-light: rgba(122, 140, 110, 0.1);
+      --rose-light: rgba(212, 166, 154, 0.12);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      color: var(--espresso);
+      background-color: var(--cream);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    .snap-section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .snap-section-auto {
+      scroll-snap-align: start;
+      min-height: auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(1.5deg); }
+      75% { transform: rotate(-1.5deg); }
+    }
+
+    @keyframes sway-reverse {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-2deg); }
+      75% { transform: rotate(2deg); }
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes ken-burns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.04) translate(-0.5%, -0.3%); }
+    }
+
+    @keyframes tick-bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ===== FALLING LEAVES ===== */
+    @keyframes leaf-fall {
+      0% {
+        transform: translateY(-8vh) translateX(0) rotate(0deg) scale(1);
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      25% {
+        transform: translateY(22vh) translateX(15px) rotate(45deg) scale(0.97);
+      }
+      50% {
+        transform: translateY(48vh) translateX(-10px) rotate(120deg) scale(0.94);
+      }
+      75% {
+        transform: translateY(74vh) translateX(20px) rotate(200deg) scale(0.91);
+      }
+      92% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(105vh) translateX(-5px) rotate(280deg) scale(0.88);
+        opacity: 0;
+      }
+    }
+
+    @keyframes leaf-fall-alt {
+      0% {
+        transform: translateY(-8vh) translateX(0) rotate(0deg) scale(1);
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      25% {
+        transform: translateY(20vh) translateX(-18px) rotate(-55deg) scale(0.96);
+      }
+      50% {
+        transform: translateY(45vh) translateX(12px) rotate(-130deg) scale(0.93);
+      }
+      75% {
+        transform: translateY(72vh) translateX(-22px) rotate(-210deg) scale(0.9);
+      }
+      92% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(105vh) translateX(8px) rotate(-300deg) scale(0.87);
+        opacity: 0;
+      }
+    }
+
+    @keyframes leaf-fall-drift {
+      0% {
+        transform: translateY(-8vh) translateX(0) rotate(15deg) scale(1);
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      30% {
+        transform: translateY(25vh) translateX(25px) rotate(80deg) scale(0.95);
+      }
+      60% {
+        transform: translateY(55vh) translateX(-15px) rotate(170deg) scale(0.92);
+      }
+      92% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(105vh) translateX(10px) rotate(250deg) scale(0.88);
+        opacity: 0;
+      }
+    }
+
+    .falling-leaves {
+      position: fixed;
+      inset: 0;
+      z-index: 9;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .falling-leaf {
+      position: absolute;
+      top: -40px;
+      will-change: transform, opacity;
+      opacity: 0;
+    }
+
+    .falling-leaf svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Leaf sizes */
+    .leaf-xs { width: 12px; height: 12px; }
+    .leaf-sm { width: 18px; height: 18px; }
+    .leaf-md { width: 26px; height: 26px; }
+    .leaf-lg { width: 36px; height: 36px; }
+    .leaf-xl { width: 48px; height: 48px; }
+
+    /* Leaf positions & timings — 20 elements, varied */
+    .falling-leaf:nth-child(1)  { left: 3%;  animation: leaf-fall 18s ease-in-out 0s infinite; }
+    .falling-leaf:nth-child(2)  { left: 10%; animation: leaf-fall-alt 22s ease-in-out 2s infinite; }
+    .falling-leaf:nth-child(3)  { left: 18%; animation: leaf-fall-drift 20s ease-in-out 5s infinite; }
+    .falling-leaf:nth-child(4)  { left: 25%; animation: leaf-fall 25s ease-in-out 1s infinite; }
+    .falling-leaf:nth-child(5)  { left: 33%; animation: leaf-fall-alt 19s ease-in-out 8s infinite; }
+    .falling-leaf:nth-child(6)  { left: 42%; animation: leaf-fall-drift 23s ease-in-out 3s infinite; }
+    .falling-leaf:nth-child(7)  { left: 50%; animation: leaf-fall 21s ease-in-out 11s infinite; }
+    .falling-leaf:nth-child(8)  { left: 58%; animation: leaf-fall-alt 24s ease-in-out 6s infinite; }
+    .falling-leaf:nth-child(9)  { left: 66%; animation: leaf-fall-drift 17s ease-in-out 4s infinite; }
+    .falling-leaf:nth-child(10) { left: 74%; animation: leaf-fall 20s ease-in-out 9s infinite; }
+    .falling-leaf:nth-child(11) { left: 82%; animation: leaf-fall-alt 26s ease-in-out 7s infinite; }
+    .falling-leaf:nth-child(12) { left: 90%; animation: leaf-fall-drift 22s ease-in-out 13s infinite; }
+    .falling-leaf:nth-child(13) { left: 7%;  animation: leaf-fall 19s ease-in-out 10s infinite; }
+    .falling-leaf:nth-child(14) { left: 15%; animation: leaf-fall-alt 21s ease-in-out 15s infinite; }
+    .falling-leaf:nth-child(15) { left: 38%; animation: leaf-fall-drift 24s ease-in-out 12s infinite; }
+    .falling-leaf:nth-child(16) { left: 55%; animation: leaf-fall 16s ease-in-out 6s infinite; }
+    .falling-leaf:nth-child(17) { left: 70%; animation: leaf-fall-alt 28s ease-in-out 3s infinite; }
+    .falling-leaf:nth-child(18) { left: 86%; animation: leaf-fall-drift 20s ease-in-out 9s infinite; }
+    .falling-leaf:nth-child(19) { left: 28%; animation: leaf-fall 23s ease-in-out 14s infinite; }
+    .falling-leaf:nth-child(20) { left: 62%; animation: leaf-fall-alt 18s ease-in-out 7s infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: none; }
+      .reveal.visible { opacity: 1; transform: none; }
+      .carousel-slide-image { animation: none !important; }
+      .leaf-sway, .leaf-sway-alt { animation: none !important; }
+      .carousel-track { transition-duration: 0.01s !important; }
+      .falling-leaves { display: none; }
+    }
+
+    .leaf-sway {
+      animation: sway 4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .leaf-sway-alt {
+      animation: sway-reverse 5s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    /* ===== CAROUSEL HERO ===== */
+    .carousel-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 500px;
+      overflow: hidden;
+      background: var(--forest);
+      scroll-snap-align: start;
+    }
+
+    .carousel-track {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-slide-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+      animation: ken-burns 14s ease-in-out alternate infinite;
+    }
+
+    .carousel-slide-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: rgba(253, 248, 240, 0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .carousel-slide-placeholder svg {
+      opacity: 0.35;
+    }
+
+    .carousel-slide-placeholder span {
+      font-size: 0.85rem;
+      opacity: 0.4;
+    }
+
+    .slide-bg-1 { background: linear-gradient(145deg, #3D2E1F 0%, #4a3828 50%, #2C3A2A 100%); }
+    .slide-bg-2 { background: linear-gradient(145deg, #2C3A2A 0%, #3a4a38 50%, #3D2E1F 100%); }
+    .slide-bg-3 { background: linear-gradient(145deg, #4a3828 0%, #2C3A2A 50%, #3D2E1F 100%); }
+    .slide-bg-4 { background: linear-gradient(145deg, #2C3A2A 0%, #3D2E1F 50%, #4a3828 100%); }
+    .slide-bg-5 { background: linear-gradient(145deg, #3D2E1F 0%, #2C3A2A 50%, #3a4a38 100%); }
+
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 70% 50% at center 50%,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.15) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .carousel-content {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      animation: fade-in-up 1.2s ease-out 0.3s both;
+    }
+
+    .carousel-content-inner {
+      padding: 2.5rem 3rem;
+      border: 1px solid rgba(253, 248, 240, 0.15);
+      border-radius: 2px;
+    }
+
+    .carousel-content-inner::before,
+    .carousel-content-inner::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 1px;
+      background: rgba(253, 248, 240, 0.4);
+      margin: 0 auto;
+    }
+
+    .carousel-content-inner::before {
+      margin-bottom: 1.2rem;
+    }
+
+    .carousel-content-inner::after {
+      margin-top: 1.2rem;
+    }
+
+    .carousel-pretext {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(253, 248, 240, 0.8);
+      margin-bottom: 0.8rem;
+    }
+
+    .carousel-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      color: var(--cream);
+      line-height: 1.2;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+    }
+
+    .carousel-names .ampersand {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 0.5em;
+      color: var(--dusty-rose);
+      display: inline-block;
+      margin: 0 0.2em;
+      vertical-align: middle;
+    }
+
+    .carousel-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--dusty-rose);
+      margin-top: 0.8rem;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .carousel-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(253, 248, 240, 0.4);
+      border: 1px solid rgba(253, 248, 240, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot:hover::after {
+      background: rgba(253, 248, 240, 0.7);
+    }
+
+    .carousel-dot.active::after {
+      background: var(--dusty-rose);
+      border-color: var(--dusty-rose);
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    .carousel-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      z-index: 4;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1.2rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .carousel-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(253, 248, 240, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(253, 248, 240, 0.15);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      pointer-events: all;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(253, 248, 240, 0.18);
+      border-color: rgba(253, 248, 240, 0.35);
+    }
+
+    .carousel-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .carousel-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      z-index: 5;
+      background: rgba(253, 248, 240, 0.08);
+    }
+
+    .carousel-progress-bar {
+      height: 100%;
+      background: var(--dusty-rose);
+      transition: width 0.3s linear;
+      width: 0%;
+    }
+
+    /* ===== CONTENT PAGES ===== */
+    .page {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+
+    .page-dark {
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .page-photo {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-photo img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+    }
+
+    .page-photo-content {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .page-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 58, 42, 0.45);
+      z-index: 1;
+    }
+
+    .page-inner {
+      max-width: 580px;
+      width: 100%;
+    }
+
+    /* Assembly pieces */
+    .assembly-piece {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.9s ease;
+      will-change: transform, opacity;
+      opacity: 0;
+    }
+
+    .assembly-piece img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .assembly-piece-left {
+      left: 0;
+      width: 33.34%;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    }
+
+    .assembly-piece-left img { left: 0; }
+
+    .assembly-piece-center {
+      left: 33.33%;
+      width: 33.34%;
+      clip-path: polygon(15% 0, 85% 0, 85% 100%, 15% 100%);
+    }
+
+    .assembly-piece-center img { left: -100%; }
+
+    .assembly-piece-right {
+      left: 66.66%;
+      width: 33.34%;
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .assembly-piece-right img { left: -200%; }
+
+    /* Invitation */
+    .invitation-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--espresso);
+      line-height: 1.4;
+      margin-bottom: 2.5rem;
+    }
+
+    .invitation-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--espresso);
+      opacity: 0.8;
+    }
+
+    .invitation-details {
+      margin-top: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 0.95rem;
+      line-height: 2;
+      color: var(--espresso);
+      opacity: 0.7;
+    }
+
+    .invitation-details strong {
+      font-weight: 600;
+      opacity: 1;
+      color: var(--espresso);
+    }
+
+    /* Countdown */
+    .countdown-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--cream);
+      margin-bottom: 2.5rem;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .countdown-item {
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 3.5rem;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .countdown-number.tick {
+      animation: tick-bounce 0.35s ease;
+    }
+
+    .countdown-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(253, 248, 240, 0.6);
+      margin-top: 0.6rem;
+    }
+
+    .countdown-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(253, 248, 240, 0.2);
+      align-self: center;
+    }
+
+    /* Schedule / Venues */
+    .schedule-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--espresso);
+      margin-bottom: 3rem;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0 2rem;
+      text-align: left;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .schedule-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--espresso);
+      text-align: right;
+      padding: 1rem 0;
+    }
+
+    .schedule-line {
+      width: 1px;
+      background: var(--sage);
+      opacity: 0.3;
+      position: relative;
+    }
+
+    .schedule-line::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    .schedule-event {
+      padding: 1rem 0;
+    }
+
+    .schedule-event-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--espresso);
+    }
+
+    .schedule-event-venue {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      color: var(--espresso);
+      opacity: 0.6;
+      margin-top: 0.2rem;
+    }
+
+    /* Venues — side by side with path */
+    .venues-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--espresso);
+      margin-bottom: 3rem;
+    }
+
+    .venues-layout {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .venue-card {
+      flex: 1;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(122, 140, 110, 0.15);
+      border-radius: 4px;
+      background: var(--cream);
+    }
+
+    .venue-card-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.8rem;
+    }
+
+    .venue-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--espresso);
+      margin-bottom: 0.3rem;
+    }
+
+    .venue-card-address {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      color: var(--espresso);
+      opacity: 0.6;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .venue-qr {
+      display: inline-block;
+      padding: 8px;
+      background: var(--cream);
+      border: 1px solid rgba(122, 140, 110, 0.1);
+      border-radius: 3px;
+    }
+
+    .venue-qr-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.75rem;
+      color: var(--sage);
+      margin-top: 0.4rem;
+    }
+
+    /* Travel path between venues */
+    .venue-path {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+      min-width: 120px;
+    }
+
+    .venue-path-desktop { display: none; }
+    .venue-path-mobile { display: block; }
+
+    .venue-path-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      color: var(--sage);
+      opacity: 0.7;
+      margin-top: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .venue-path-car {
+      animation: drive 3s ease-in-out infinite;
+    }
+
+    @keyframes drive {
+      0%, 100% { transform: translateX(-30px); }
+      50% { transform: translateX(30px); }
+    }
+
+    /* Mobile first: stack vertically by default */
+    .venues-layout {
+      flex-direction: column;
+      gap: 0;
+      max-width: 320px;
+    }
+
+    .venue-path {
+      padding: 1.5rem 0;
+      min-width: auto;
+    }
+
+    .venue-path-mobile {
+      width: 60px;
+      height: 120px;
+    }
+
+    .venue-path-label {
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      color: var(--espresso);
+      opacity: 0.6;
+    }
+
+    .venue-path-car {
+      animation: drive-vertical 2.5s ease-in-out infinite;
+    }
+
+    @keyframes drive-vertical {
+      0% { transform: translateY(-20px); opacity: 0.5; }
+      50% { transform: translateY(20px); opacity: 1; }
+      100% { transform: translateY(-20px); opacity: 0.5; }
+    }
+
+    /* Desktop: side by side */
+    @media (min-width: 651px) {
+      .venues-layout {
+        flex-direction: row;
+        gap: 0;
+        max-width: 900px;
+      }
+
+      .venue-path {
+        padding: 0 1.5rem;
+        min-width: 160px;
+      }
+
+      .venue-path-mobile { display: none; }
+      .venue-path-desktop { display: block; width: 100%; height: 40px; }
+
+      .venue-path-label {
+        font-size: 0.8rem;
+      }
+
+      .venue-path-car {
+        animation: drive 3s ease-in-out infinite;
+      }
+    }
+
+    /* ===== DRESS CODE / COLOR PALETTE ===== */
+    .dresscode-section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      background: var(--linen);
+    }
+
+    .dresscode-inner {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .dresscode-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.4rem;
+      color: var(--espresso);
+      margin-bottom: 0.3rem;
+    }
+
+    .dresscode-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 2.5rem;
+    }
+
+    .dresscode-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--espresso);
+      opacity: 0.75;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .palette-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .palette-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swatch-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid rgba(253, 248, 240, 0.8);
+      box-shadow: 0 2px 8px rgba(61, 46, 31, 0.1), inset 0 1px 3px rgba(255,255,255,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .swatch-circle:hover {
+      transform: scale(1.12);
+      box-shadow: 0 4px 16px rgba(61, 46, 31, 0.18);
+    }
+
+    .swatch-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--espresso);
+      opacity: 0.65;
+    }
+
+    .dresscode-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--sage), transparent);
+      opacity: 0.3;
+      margin: 1.5rem auto;
+    }
+
+    .dresscode-avoid {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--espresso);
+      opacity: 0.55;
+      letter-spacing: 0.08em;
+    }
+
+    /* Responsive — dress code */
+    @media (min-width: 481px) {
+      .dresscode-title { font-size: 2.6rem; }
+      .swatch-circle { width: 64px; height: 64px; }
+      .palette-grid { gap: 1.3rem; }
+    }
+
+    @media (min-width: 769px) {
+      .dresscode-title { font-size: 2.8rem; }
+      .swatch-circle { width: 72px; height: 72px; }
+      .palette-grid { gap: 1.5rem; }
+    }
+
+    /* ===== GALLERY — Polaroid Style ===== */
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.4rem;
+      color: var(--espresso);
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+      max-width: 880px;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .gallery-item {
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+    }
+
+    .polaroid {
+      background: var(--cream);
+      padding: 7px 7px 0 7px;
+      border: 1px solid rgba(61, 46, 31, 0.08);
+      box-shadow: 0 2px 12px rgba(61, 46, 31, 0.1), 0 1px 3px rgba(61, 46, 31, 0.06);
+      border-radius: 2px;
+    }
+
+    .polaroid-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid-caption {
+      font-family: 'Great Vibes', cursive;
+      font-size: 0.95rem;
+      color: var(--espresso);
+      text-align: center;
+      padding: 10px 6px 12px;
+      opacity: 0.7;
+      line-height: 1.3;
+    }
+
+    /* Playful scattered rotations + vertical offsets */
+    .gallery-item:nth-child(1)  { transform: rotate(-2deg); }
+    .gallery-item:nth-child(2)  { transform: rotate(2.2deg) translateY(-8px); }
+    .gallery-item:nth-child(3)  { transform: rotate(-1deg) translateY(6px); }
+    .gallery-item:nth-child(4)  { transform: rotate(1.5deg) translateY(-4px); }
+    .gallery-item:nth-child(5)  { transform: rotate(-2.5deg); }
+    .gallery-item:nth-child(6)  { transform: rotate(1.8deg) translateY(-10px); }
+    .gallery-item:nth-child(7)  { transform: rotate(-1.5deg) translateY(8px); }
+    .gallery-item:nth-child(8)  { transform: rotate(2.5deg) translateY(-6px); }
+    .gallery-item:nth-child(9)  { transform: rotate(-0.8deg) translateY(4px); }
+
+    /* Varied sizes — some span 2 rows or 2 columns */
+    .gallery-item.span-tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item.span-tall .polaroid-image {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    .gallery-item.span-tall .polaroid {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-item.span-wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item.span-wide .polaroid-image {
+      aspect-ratio: 2 / 1;
+    }
+
+    .gallery-item:hover {
+      transform: rotate(0deg) scale(1.06) !important;
+      box-shadow: 0 8px 28px rgba(61, 46, 31, 0.18);
+      z-index: 2;
+    }
+
+    /* Staggered reveal */
+    .gallery-stagger {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .gallery-stagger.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-stagger:nth-child(1)  { transition-delay: 0s; }
+    .gallery-stagger:nth-child(2)  { transition-delay: 0.08s; }
+    .gallery-stagger:nth-child(3)  { transition-delay: 0.16s; }
+    .gallery-stagger:nth-child(4)  { transition-delay: 0.24s; }
+    .gallery-stagger:nth-child(5)  { transition-delay: 0.32s; }
+    .gallery-stagger:nth-child(6)  { transition-delay: 0.40s; }
+    .gallery-stagger:nth-child(7)  { transition-delay: 0.48s; }
+    .gallery-stagger:nth-child(8)  { transition-delay: 0.56s; }
+    .gallery-stagger:nth-child(9)  { transition-delay: 0.64s; }
+
+    .gallery-stagger.visible:nth-child(1)  { transform: rotate(-2deg); }
+    .gallery-stagger.visible:nth-child(2)  { transform: rotate(2.2deg) translateY(-8px); }
+    .gallery-stagger.visible:nth-child(3)  { transform: rotate(-1deg) translateY(6px); }
+    .gallery-stagger.visible:nth-child(4)  { transform: rotate(1.5deg) translateY(-4px); }
+    .gallery-stagger.visible:nth-child(5)  { transform: rotate(-2.5deg); }
+    .gallery-stagger.visible:nth-child(6)  { transform: rotate(1.8deg) translateY(-10px); }
+    .gallery-stagger.visible:nth-child(7)  { transform: rotate(-1.5deg) translateY(8px); }
+    .gallery-stagger.visible:nth-child(8)  { transform: rotate(2.5deg) translateY(-6px); }
+    .gallery-stagger.visible:nth-child(9)  { transform: rotate(-0.8deg) translateY(4px); }
+
+    /* Responsive gallery */
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 0.8rem;
+      }
+      .gallery-title { font-size: 2rem; }
+      .polaroid { padding: 5px 5px 0 5px; }
+      .gallery-item.span-wide { grid-column: span 2; }
+      .gallery-item.span-tall { grid-row: span 2; }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+      .gallery-title { font-size: 2.2rem; }
+    }
+
+    @media (min-width: 769px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .gallery-title { font-size: 2.6rem; }
+    }
+
+    /* ===== RSVP SECTION ===== */
+    .rsvp-section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--forest);
+      position: relative;
+    }
+
+    .rsvp-inner {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .rsvp-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .rsvp-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      margin-bottom: 0.6rem;
+    }
+
+    .rsvp-deadline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(253, 248, 240, 0.45);
+      margin-bottom: 2.5rem;
+    }
+
+    .rsvp-counter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem;
+      color: rgba(253, 248, 240, 0.4);
+      margin-bottom: 2rem;
+      letter-spacing: 0.08em;
+      min-height: 1.4em;
+    }
+
+    .rsvp-counter span {
+      color: var(--dusty-rose);
+      font-weight: 500;
+    }
+
+    .rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .rsvp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .rsvp-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      text-align: left;
+    }
+
+    .rsvp-field label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253, 248, 240, 0.55);
+    }
+
+    .rsvp-field input,
+    .rsvp-field select,
+    .rsvp-field textarea {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      background: rgba(253, 248, 240, 0.06);
+      border: 1px solid rgba(253, 248, 240, 0.15);
+      border-radius: 3px;
+      padding: 0.65rem 0.9rem;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.25s;
+      width: 100%;
+    }
+
+    .rsvp-field input::placeholder,
+    .rsvp-field textarea::placeholder {
+      color: rgba(253, 248, 240, 0.25);
+    }
+
+    .rsvp-field input:focus,
+    .rsvp-field select:focus,
+    .rsvp-field textarea:focus {
+      border-color: var(--dusty-rose);
+      background: rgba(253, 248, 240, 0.09);
+    }
+
+    .rsvp-field select option {
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .rsvp-field textarea {
+      resize: none;
+      height: 80px;
+      line-height: 1.6;
+    }
+
+    .rsvp-attending {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .rsvp-radio-label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      color: rgba(253, 248, 240, 0.6);
+      border: 1px solid rgba(253, 248, 240, 0.15);
+      border-radius: 3px;
+      padding: 0.6rem;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .rsvp-radio-label input[type=radio] {
+      width: auto;
+      accent-color: var(--dusty-rose);
+    }
+
+    .rsvp-radio-label:has(input:checked) {
+      border-color: var(--dusty-rose);
+      color: var(--cream);
+      background: rgba(212, 166, 154, 0.1);
+    }
+
+    .rsvp-submit {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--sage);
+      border: none;
+      border-radius: 3px;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .rsvp-submit:hover {
+      background: #5A7A4E;
+      box-shadow: 0 4px 16px rgba(107, 143, 94, 0.25);
+    }
+
+    .rsvp-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .rsvp-status {
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      min-height: 1.5em;
+      color: var(--dusty-rose);
+    }
+
+    .rsvp-status.error {
+      color: #e08080;
+    }
+
+    .rsvp-divider {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(253,248,240,0.2), transparent);
+      margin: 2.5rem auto;
+    }
+
+    @media (max-width: 480px) {
+      .rsvp-row { grid-template-columns: 1fr; }
+      .rsvp-title { font-size: 2.2rem; }
+    }
+
+    /* ===== LIGHTBOX with Navigation ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(44, 58, 42, 0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-image-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 90vw;
+      max-height: 85vh;
+    }
+
+    .lightbox-image-wrapper img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 3px;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.35);
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(253, 248, 240, 0.08);
+      border: 1px solid rgba(253, 248, 240, 0.2);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.4rem;
+      transition: background 0.25s;
+      z-index: 10002;
+    }
+
+    .lightbox-close:hover { background: rgba(253, 248, 240, 0.18); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(253, 248, 240, 0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(253, 248, 240, 0.2);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      z-index: 10002;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(253, 248, 240, 0.2);
+      border-color: rgba(253, 248, 240, 0.4);
+    }
+
+    .lightbox-nav svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .lightbox-prev { left: 1.2rem; }
+    .lightbox-next { right: 1.2rem; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: rgba(253, 248, 240, 0.5);
+      z-index: 10002;
+    }
+
+    @media (max-width: 480px) {
+      .lightbox-nav { width: 40px; height: 40px; }
+      .lightbox-prev { left: 0.6rem; }
+      .lightbox-next { right: 0.6rem; }
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--cream);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 12px rgba(61, 46, 31, 0.15);
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--forest);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--forest);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-names .ampersand {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 0.6em;
+      color: var(--dusty-rose);
+      margin: 0 0.15em;
+    }
+
+    .footer-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      color: var(--dusty-rose);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-message {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(253, 248, 240, 0.6);
+      max-width: 350px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ===== RESPONSIVE — Mobile First ===== */
+
+    /* Base = mobile (320px+) */
+    .carousel-content-inner {
+      padding: 1.8rem 1.5rem;
+    }
+
+    .carousel-names {
+      font-size: 2.4rem;
+    }
+
+    .carousel-pretext {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+    }
+
+    .carousel-arrows { display: none; }
+
+    .section {
+      padding: 3.5rem 1.2rem;
+    }
+
+    .section-linen {
+      padding: 3.5rem 1.2rem;
+    }
+
+    .section-linen .section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+
+
+    .countdown-grid {
+      gap: 0.8rem;
+    }
+
+    .countdown-item {
+      padding: 1.2rem 1.4rem;
+    }
+
+    .countdown-number { font-size: 2.2rem; }
+    .countdown-label { font-size: 0.6rem; }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 1;
+    }
+
+    .gallery-title { font-size: 2rem; }
+
+    .venue-label { font-size: 1.8rem; }
+
+    .invitation-text {
+      font-size: 1.05rem;
+      line-height: 2;
+    }
+
+    .invitation-highlight {
+      font-size: 1.2rem;
+    }
+
+    .footer {
+      padding: 3.5rem 1.5rem;
+    }
+
+
+    /* Tablet (481px+) */
+    @media (min-width: 481px) {
+      .carousel-content-inner {
+        padding: 2rem 2.5rem;
+      }
+
+      .carousel-names {
+        font-size: clamp(2.8rem, 8vw, 3.8rem);
+      }
+
+      .carousel-pretext {
+        font-size: 0.8rem;
+        letter-spacing: 0.3em;
+      }
+
+      .section {
+        padding: 4.5rem 1.5rem;
+      }
+
+      .section-linen {
+        padding: 4.5rem 1.5rem;
+      }
+
+      .countdown-grid {
+        gap: 1.2rem;
+      }
+
+      .countdown-item {
+        padding: 1.4rem 1.8rem;
+      }
+
+      .countdown-number { font-size: 2.8rem; }
+      .countdown-label { font-size: 0.65rem; }
+
+      .gallery-title { font-size: 2.2rem; }
+
+      .venue-label { font-size: 2rem; }
+
+      .invitation-text { font-size: 1.15rem; }
+      .invitation-highlight { font-size: 1.3rem; }
+
+      .footer {
+        padding: 4rem 2rem;
+      }
+    }
+
+    /* Desktop (769px+) */
+    @media (min-width: 769px) {
+      .carousel-content-inner {
+        padding: 2.5rem 3.5rem;
+      }
+
+      .carousel-names {
+        font-size: clamp(3rem, 7vw, 4.5rem);
+      }
+
+      .carousel-pretext {
+        font-size: 0.85rem;
+        letter-spacing: 0.35em;
+      }
+
+      .carousel-arrows { display: flex; }
+
+      .section {
+        padding: 6rem 2rem;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+
+      .section-linen {
+        max-width: 100%;
+        padding: 6rem 2rem;
+      }
+
+      .countdown-grid {
+        gap: 1.5rem;
+      }
+
+      .countdown-item {
+        padding: 1.5rem 2rem;
+      }
+
+      .countdown-number { font-size: 3.5rem; }
+      .countdown-label { font-size: 0.7rem; }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .gallery-item:first-child {
+        grid-row: span 2;
+        aspect-ratio: auto;
+      }
+
+      .gallery-title { font-size: 2.6rem; }
+
+      .venue-label { font-size: 2.2rem; }
+
+      .invitation-text {
+        font-size: 1.2rem;
+        line-height: 2.2;
+      }
+
+      .invitation-highlight {
+        font-size: 1.4rem;
+      }
+
+      .footer {
+        padding: 4.5rem 2rem;
+      }
+
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .carousel-arrows { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== FALLING GARDEN OVERLAY ===== -->
+  <div class="falling-leaves" aria-hidden="true">
+
+    <!-- 1. Big eucalyptus — vivid -->
+    <div class="falling-leaf leaf-xl">
+      <svg viewBox="0 0 48 80" fill="none"><path d="M24 0C24 0 6 20 6 46c0 16 7 28 18 34 11-6 18-18 18-34C42 20 24 0 24 0z" fill="#6B8F5E" opacity="0.28"/><path d="M24 10v58" stroke="#5A7A4E" stroke-width="0.8" opacity="0.3"/><path d="M24 22l-8 6M24 34l-7 5M24 44l-5 4" stroke="#5A7A4E" stroke-width="0.4" opacity="0.2"/><path d="M24 22l8 6M24 34l7 5M24 44l5 4" stroke="#5A7A4E" stroke-width="0.4" opacity="0.2"/></svg>
+    </div>
+
+    <!-- 2. Garden rose — dusty pink -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="8" fill="#D4A69A" opacity="0.30"/><ellipse cx="18" cy="10" rx="5" ry="6" fill="#C8908A" opacity="0.22"/><ellipse cx="12" cy="16" rx="5" ry="6" transform="rotate(-40 12 16)" fill="#D4A69A" opacity="0.20"/><ellipse cx="24" cy="16" rx="5" ry="6" transform="rotate(40 24 16)" fill="#C8908A" opacity="0.18"/><ellipse cx="14" cy="24" rx="5" ry="6" transform="rotate(20 14 24)" fill="#D4A69A" opacity="0.20"/><ellipse cx="22" cy="24" rx="5" ry="6" transform="rotate(-20 22 24)" fill="#C8908A" opacity="0.18"/><circle cx="18" cy="18" r="3" fill="#B8786C" opacity="0.25"/></svg>
+    </div>
+
+    <!-- 3. Vine trailing leaf cluster -->
+    <div class="falling-leaf leaf-xl">
+      <svg viewBox="0 0 44 90" fill="none"><path d="M22 2c0 0-4 12-2 28s6 24 2 40c-3 12-6 18-6 18" stroke="#6B8F5E" stroke-width="0.8" fill="none" opacity="0.22"/><ellipse cx="14" cy="18" rx="6" ry="10" transform="rotate(-25 14 18)" fill="#7A8C6E" opacity="0.24"/><ellipse cx="28" cy="35" rx="5" ry="9" transform="rotate(20 28 35)" fill="#7A8C6E" opacity="0.20"/><ellipse cx="16" cy="55" rx="5" ry="8" transform="rotate(-15 16 55)" fill="#7A8C6E" opacity="0.22"/><ellipse cx="26" cy="72" rx="4" ry="7" transform="rotate(25 26 72)" fill="#6B8F5E" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 4. Cherry blossom -->
+    <div class="falling-leaf leaf-md">
+      <svg viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="8" rx="4" ry="6" fill="#E8B5B0" opacity="0.28"/><ellipse cx="8" cy="14" rx="4" ry="6" transform="rotate(72 8 14)" fill="#D4A69A" opacity="0.25"/><ellipse cx="20" cy="14" rx="4" ry="6" transform="rotate(-72 20 14)" fill="#E8B5B0" opacity="0.22"/><ellipse cx="10" cy="22" rx="4" ry="6" transform="rotate(36 10 22)" fill="#D4A69A" opacity="0.24"/><ellipse cx="18" cy="22" rx="4" ry="6" transform="rotate(-36 18 22)" fill="#E8B5B0" opacity="0.22"/><circle cx="14" cy="15" r="2.5" fill="#B8944F" opacity="0.30"/></svg>
+    </div>
+
+    <!-- 5. Big olive leaf — vivid -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 30 56" fill="none"><ellipse cx="15" cy="28" rx="10" ry="24" fill="#6B8F5E" opacity="0.26"/><path d="M15 5v46" stroke="#5A7A4E" stroke-width="0.6" opacity="0.28"/></svg>
+    </div>
+
+    <!-- 6. Small wildflower -->
+    <div class="falling-leaf leaf-sm">
+      <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" fill="#B8944F" opacity="0.30"/><ellipse cx="10" cy="4" rx="2.5" ry="3.5" fill="#D4A69A" opacity="0.26"/><ellipse cx="4" cy="10" rx="2.5" ry="3.5" transform="rotate(90 4 10)" fill="#D4A69A" opacity="0.22"/><ellipse cx="16" cy="10" rx="2.5" ry="3.5" transform="rotate(90 16 10)" fill="#D4A69A" opacity="0.24"/><ellipse cx="10" cy="16" rx="2.5" ry="3.5" fill="#D4A69A" opacity="0.22"/></svg>
+    </div>
+
+    <!-- 7. Medium eucalyptus -->
+    <div class="falling-leaf leaf-md">
+      <svg viewBox="0 0 24 40" fill="none"><path d="M12 0C12 0 4 10 4 22c0 8 3.5 14 8 18 4.5-4 8-10 8-18C20 10 12 0 12 0z" fill="#7A8C6E" opacity="0.22"/><path d="M12 6v30" stroke="#6B8F5E" stroke-width="0.5" opacity="0.24"/></svg>
+    </div>
+
+    <!-- 8. Garden rose — smaller -->
+    <div class="falling-leaf leaf-md">
+      <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="6" fill="#C8908A" opacity="0.24"/><ellipse cx="14" cy="8" rx="4" ry="5" fill="#D4A69A" opacity="0.20"/><ellipse cx="9" cy="13" rx="4" ry="5" transform="rotate(-35 9 13)" fill="#C8908A" opacity="0.18"/><ellipse cx="19" cy="13" rx="4" ry="5" transform="rotate(35 19 13)" fill="#D4A69A" opacity="0.18"/><circle cx="14" cy="14" r="2.5" fill="#B8786C" opacity="0.22"/></svg>
+    </div>
+
+    <!-- 9. Big fern — vivid -->
+    <div class="falling-leaf leaf-xl">
+      <svg viewBox="0 0 44 80" fill="none"><path d="M22 2C22 2 8 18 8 40c0 14 5 24 14 34 9-10 14-20 14-34C36 18 22 2 22 2z" fill="#6B8F5E" opacity="0.24"/><path d="M22 10v58" stroke="#5A7A4E" stroke-width="0.7" opacity="0.26"/><path d="M22 18l-8 6M22 28l-7 5M22 38l-6 4M22 48l-4 3" stroke="#5A7A4E" stroke-width="0.4" opacity="0.18"/><path d="M22 18l8 6M22 28l7 5M22 38l6 4M22 48l4 3" stroke="#5A7A4E" stroke-width="0.4" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 10. Dusty rose petal — vivid -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 24 38" fill="none"><ellipse cx="12" cy="19" rx="9" ry="17" fill="#D4A69A" opacity="0.26"/><path d="M12 4v30" stroke="#C8908A" stroke-width="0.4" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 11. Vine tendril with buds -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 36 70" fill="none"><path d="M18 2c-2 8-8 16-4 28s8 18 4 32" stroke="#7A8C6E" stroke-width="0.7" fill="none" opacity="0.24"/><circle cx="12" cy="20" r="3" fill="#D4A69A" opacity="0.22"/><circle cx="24" cy="40" r="2.5" fill="#C8908A" opacity="0.20"/><ellipse cx="10" cy="34" rx="4" ry="7" transform="rotate(-20 10 34)" fill="#7A8C6E" opacity="0.22"/><ellipse cx="24" cy="54" rx="3.5" ry="6" transform="rotate(15 24 54)" fill="#6B8F5E" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 12. Cherry blossom small -->
+    <div class="falling-leaf leaf-sm">
+      <svg viewBox="0 0 20 20" fill="none"><ellipse cx="10" cy="5" rx="3" ry="4" fill="#E8B5B0" opacity="0.26"/><ellipse cx="5" cy="10" rx="3" ry="4" transform="rotate(72 5 10)" fill="#D4A69A" opacity="0.22"/><ellipse cx="15" cy="10" rx="3" ry="4" transform="rotate(-72 15 10)" fill="#E8B5B0" opacity="0.24"/><ellipse cx="7" cy="16" rx="3" ry="4" transform="rotate(36 7 16)" fill="#D4A69A" opacity="0.20"/><ellipse cx="13" cy="16" rx="3" ry="4" transform="rotate(-36 13 16)" fill="#E8B5B0" opacity="0.20"/><circle cx="10" cy="11" r="1.8" fill="#B8944F" opacity="0.28"/></svg>
+    </div>
+
+    <!-- 13. Olive medium -->
+    <div class="falling-leaf leaf-md">
+      <svg viewBox="0 0 22 40" fill="none"><ellipse cx="11" cy="20" rx="8" ry="18" fill="#7A8C6E" opacity="0.20"/><path d="M11 3v34" stroke="#6B8F5E" stroke-width="0.4" opacity="0.22"/></svg>
+    </div>
+
+    <!-- 14. Big garden rose -->
+    <div class="falling-leaf leaf-xl">
+      <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="11" fill="#D4A69A" opacity="0.24"/><ellipse cx="24" cy="13" rx="7" ry="8" fill="#C8908A" opacity="0.20"/><ellipse cx="15" cy="21" rx="7" ry="8" transform="rotate(-40 15 21)" fill="#D4A69A" opacity="0.18"/><ellipse cx="33" cy="21" rx="7" ry="8" transform="rotate(40 33 21)" fill="#C8908A" opacity="0.16"/><ellipse cx="17" cy="32" rx="7" ry="8" transform="rotate(20 17 32)" fill="#D4A69A" opacity="0.18"/><ellipse cx="31" cy="32" rx="7" ry="8" transform="rotate(-20 31 32)" fill="#C8908A" opacity="0.16"/><circle cx="24" cy="24" r="5" fill="#B8786C" opacity="0.22"/><circle cx="24" cy="24" r="2" fill="#B8944F" opacity="0.28"/></svg>
+    </div>
+
+    <!-- 15. Small eucalyptus -->
+    <div class="falling-leaf leaf-sm">
+      <svg viewBox="0 0 18 30" fill="none"><path d="M9 0C9 0 3 8 3 17c0 6 2.5 10 6 13 3.5-3 6-7 6-13C15 8 9 0 9 0z" fill="#7A8C6E" opacity="0.20"/><path d="M9 4v22" stroke="#6B8F5E" stroke-width="0.4" opacity="0.22"/></svg>
+    </div>
+
+    <!-- 16. Wildflower — gold center -->
+    <div class="falling-leaf leaf-md">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.5" fill="#B8944F" opacity="0.30"/><ellipse cx="12" cy="4" rx="3" ry="4.5" fill="#E8B5B0" opacity="0.24"/><ellipse cx="4" cy="12" rx="3" ry="4.5" transform="rotate(90 4 12)" fill="#D4A69A" opacity="0.22"/><ellipse cx="20" cy="12" rx="3" ry="4.5" transform="rotate(90 20 12)" fill="#E8B5B0" opacity="0.22"/><ellipse cx="12" cy="20" rx="3" ry="4.5" fill="#D4A69A" opacity="0.20"/><ellipse cx="6" cy="6" rx="2.5" ry="4" transform="rotate(45 6 6)" fill="#E8B5B0" opacity="0.18"/><ellipse cx="18" cy="6" rx="2.5" ry="4" transform="rotate(-45 18 6)" fill="#D4A69A" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 17. Trailing vine -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 32 65" fill="none"><path d="M16 2c-3 10-10 18-4 32s6 16 2 28" stroke="#6B8F5E" stroke-width="0.6" fill="none" opacity="0.22"/><ellipse cx="10" cy="16" rx="5" ry="8" transform="rotate(-30 10 16)" fill="#7A8C6E" opacity="0.24"/><ellipse cx="22" cy="36" rx="4" ry="7" transform="rotate(25 22 36)" fill="#6B8F5E" opacity="0.20"/><ellipse cx="14" cy="52" rx="4" ry="6" transform="rotate(-10 14 52)" fill="#7A8C6E" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 18. Tiny rose petal -->
+    <div class="falling-leaf leaf-xs">
+      <svg viewBox="0 0 14 20" fill="none"><ellipse cx="7" cy="10" rx="5" ry="9" fill="#D4A69A" opacity="0.24"/></svg>
+    </div>
+
+    <!-- 19. Eucalyptus vivid -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 30 52" fill="none"><path d="M15 0C15 0 5 13 5 29c0 10 4 18 10 23 6-5 10-13 10-23C25 13 15 0 15 0z" fill="#6B8F5E" opacity="0.26"/><path d="M15 8v38" stroke="#5A7A4E" stroke-width="0.6" opacity="0.28"/><path d="M15 16l-6 5M15 24l-5 4M15 32l-4 3" stroke="#5A7A4E" stroke-width="0.35" opacity="0.18"/><path d="M15 16l6 5M15 24l5 4M15 32l4 3" stroke="#5A7A4E" stroke-width="0.35" opacity="0.18"/></svg>
+    </div>
+
+    <!-- 20. Cherry blossom vivid -->
+    <div class="falling-leaf leaf-lg">
+      <svg viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="8" rx="5" ry="7" fill="#E8B5B0" opacity="0.28"/><ellipse cx="9" cy="16" rx="5" ry="7" transform="rotate(72 9 16)" fill="#D4A69A" opacity="0.26"/><ellipse cx="23" cy="16" rx="5" ry="7" transform="rotate(-72 23 16)" fill="#E8B5B0" opacity="0.24"/><ellipse cx="11" cy="25" rx="5" ry="7" transform="rotate(36 11 25)" fill="#D4A69A" opacity="0.24"/><ellipse cx="21" cy="25" rx="5" ry="7" transform="rotate(-36 21 25)" fill="#E8B5B0" opacity="0.22"/><circle cx="16" cy="17" r="3" fill="#B8944F" opacity="0.32"/></svg>
+    </div>
+
+  </div>
+
+  <!-- ===== CAROUSEL HERO ===== -->
+  <section class="carousel-hero" id="carousel">
+    <div class="carousel-track" id="carousel-track">
+      <div class="carousel-slide">
+        <img class="carousel-slide-image" src="carousel-1.jpg" alt="Kevin and Thea">
+      </div>
+      <div class="carousel-slide">
+        <img class="carousel-slide-image" src="carousel-2.jpg" alt="Kevin and Thea" style="object-position:center 60%;">
+      </div>
+      <div class="carousel-slide" style="position:relative;">
+        <img src="carousel-3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(8px) brightness(0.6);transform:scale(1.1);">
+        <img class="carousel-slide-image" src="carousel-3.jpg" alt="Kevin and Thea" style="object-fit:contain;position:relative;z-index:1;">
+      </div>
+      <div class="carousel-slide">
+        <img class="carousel-slide-image" src="carousel-4.jpg" alt="Kevin and Thea" style="object-position:center bottom;">
+      </div>
+      <div class="carousel-slide">
+        <img class="carousel-slide-image" src="carousel-5.jpg" alt="Kevin and Thea">
+      </div>
+    </div>
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-content">
+      <div class="carousel-content-inner">
+        <p class="carousel-pretext">Together with their families</p>
+        <h1 class="carousel-names">
+          Kevin <span class="ampersand">&amp;</span> Thea
+        </h1>
+        <p class="carousel-date">December 4, 2026 &bull; Bulacan, Philippines</p>
+      </div>
+    </div>
+
+    <div class="carousel-arrows">
+      <button class="carousel-arrow" id="carousel-prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="carousel-arrow" id="carousel-next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="carousel-nav" id="carousel-nav">
+      <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+      <button class="carousel-dot" data-slide="4" aria-label="Slide 5"></button>
+    </div>
+
+    <div class="carousel-progress">
+      <div class="carousel-progress-bar" id="carousel-progress"></div>
+    </div>
+  </section>
+
+
+  <!-- PAGE 2: Invitation (cream) -->
+  <section class="page">
+    <div class="page-inner reveal">
+      <p class="invitation-script">
+        Let's celebrate love,<br>laughter, and happily<br>ever after!
+      </p>
+      <p class="invitation-body">
+        Together with our families, we, Kevin and Thea,<br>
+        joyfully invite you to celebrate<br>
+        our union in marriage.
+      </p>
+      <div class="invitation-details">
+        <strong>Friday</strong><br>
+        4th of December 2026<br>
+        Ceremony starts at 3pm
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 3: Photo + Countdown (assembly effect) -->
+  <section class="page-photo" id="countdown-assembly">
+    <div class="assembly-piece assembly-piece-left" id="asm-left">
+      <img src="section-countdown.jpg" alt="">
+    </div>
+    <div class="assembly-piece assembly-piece-center" id="asm-center">
+      <img src="section-countdown.jpg" alt="">
+    </div>
+    <div class="assembly-piece assembly-piece-right" id="asm-right">
+      <img src="section-countdown.jpg" alt="">
+    </div>
+    <div class="page-photo-overlay"></div>
+    <div class="page-photo-content">
+      <div class="page-inner reveal">
+        <h2 class="countdown-heading">Counting the Days</h2>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-days">---</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-divider"></div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-hours">--</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-divider"></div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="cd-minutes">--</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: Wedding Day Schedule (cream) -->
+  <section class="page">
+    <div class="page-inner reveal">
+      <h2 class="schedule-heading">Wedding Day Schedule</h2>
+      <div class="schedule-grid">
+        <div class="schedule-time">3:00 PM</div>
+        <div class="schedule-line"></div>
+        <div class="schedule-event">
+          <div class="schedule-event-title">Wedding Ceremony</div>
+          <div class="schedule-event-venue">INC Local, Ciudad De Victoria</div>
+        </div>
+
+        <div class="schedule-time">3:45 PM</div>
+        <div class="schedule-line"></div>
+        <div class="schedule-event">
+          <div class="schedule-event-title">Travel</div>
+          <div class="schedule-event-venue">Drive to reception venue</div>
+        </div>
+
+        <div class="schedule-time">4:00 PM</div>
+        <div class="schedule-line"></div>
+        <div class="schedule-event">
+          <div class="schedule-event-title">Cocktail Hour</div>
+          <div class="schedule-event-venue">Angel Gabriel's Garden</div>
+        </div>
+
+        <div class="schedule-time">5:00 PM</div>
+        <div class="schedule-line"></div>
+        <div class="schedule-event">
+          <div class="schedule-event-title">Dinner & Party</div>
+          <div class="schedule-event-venue">Reception celebration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 5: Venues side by side with travel path -->
+  <section class="page">
+    <div class="reveal">
+      <h2 class="venues-heading">Our Venues</h2>
+      <div class="venues-layout">
+        <!-- Ceremony -->
+        <div class="venue-card">
+          <p class="venue-card-time">3:00 PM &bull; Ceremony</p>
+          <p class="venue-card-name">INC Local of Ciudad De Victoria</p>
+          <p class="venue-card-address">Ciudad de Victoria Complex<br>Philippine Arena, Barangay Duhat<br>Bocaue, Bulacan 3018</p>
+          <div class="venue-qr" id="qr-ceremony"></div>
+          <p class="venue-qr-label">Scan for directions</p>
+        </div>
+
+        <!-- Travel path -->
+        <div class="venue-path">
+          <!-- Vertical path (mobile) -->
+          <svg class="venue-path-mobile" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30,5 Q18,30 30,60 Q42,90 30,115" stroke="#7A8C6E" stroke-width="2" stroke-dasharray="5 4" opacity="0.35" fill="none"/>
+            <g class="venue-path-car">
+              <!-- Car body -->
+              <rect x="18" y="48" width="24" height="16" rx="5" fill="#C17A56"/>
+              <!-- Car roof -->
+              <rect x="22" y="42" width="16" height="9" rx="4" fill="#C17A56" opacity="0.75"/>
+              <!-- Wheels -->
+              <circle cx="23" cy="66" r="3.5" fill="#3D2E1F" opacity="0.6"/>
+              <circle cx="37" cy="66" r="3.5" fill="#3D2E1F" opacity="0.6"/>
+              <!-- Windshield -->
+              <rect x="24" y="44" width="12" height="5" rx="2" fill="#FDF8F0" opacity="0.5"/>
+            </g>
+          </svg>
+          <!-- Horizontal path (desktop) -->
+          <svg class="venue-path-desktop" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 Q35,8 70,20 Q105,32 140,20" stroke="#7A8C6E" stroke-width="2" stroke-dasharray="5 4" opacity="0.4" fill="none"/>
+            <g class="venue-path-car">
+              <rect x="60" y="14" width="20" height="12" rx="4" fill="#C17A56" opacity="0.85"/>
+              <rect x="63" y="10" width="14" height="7" rx="3" fill="#C17A56" opacity="0.6"/>
+              <circle cx="64" cy="28" r="3" fill="#3D2E1F" opacity="0.4"/>
+              <circle cx="76" cy="28" r="3" fill="#3D2E1F" opacity="0.4"/>
+            </g>
+          </svg>
+          <span class="venue-path-label">~15 min drive</span>
+        </div>
+
+        <!-- Reception -->
+        <div class="venue-card">
+          <p class="venue-card-time">4:00 PM &bull; Reception</p>
+          <p class="venue-card-name">Angel Gabriel's Garden</p>
+          <p class="venue-card-address">146 J.P. Rizal St., San Gabriel<br>Santa Maria, Bulacan 3022<br>Philippines</p>
+          <div class="venue-qr" id="qr-reception"></div>
+          <p class="venue-qr-label">Scan for directions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 6: Dress Code & Color Palette -->
+  <section class="dresscode-section">
+    <div class="dresscode-inner reveal">
+      <h2 class="dresscode-title">Dress Code</h2>
+      <p class="dresscode-subtitle">Semi-formal &bull; Garden attire</p>
+
+      <p class="dresscode-note">
+        We'd love for our guests to complement<br>
+        the garden setting. Please wear any of<br>
+        these earthy, rustic tones.
+      </p>
+
+      <div class="palette-grid">
+        <div class="palette-swatch reveal reveal-delay-1">
+          <div class="swatch-circle" style="background: #8B6F4E;"></div>
+          <span class="swatch-name">Toffee</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-1">
+          <div class="swatch-circle" style="background: #A67B5B;"></div>
+          <span class="swatch-name">Camel</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-2">
+          <div class="swatch-circle" style="background: #C17A56;"></div>
+          <span class="swatch-name">Terracotta</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-2">
+          <div class="swatch-circle" style="background: #7A8C6E;"></div>
+          <span class="swatch-name">Sage</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-3">
+          <div class="swatch-circle" style="background: #D4A69A;"></div>
+          <span class="swatch-name">Dusty Rose</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-3">
+          <div class="swatch-circle" style="background: #B8944F;"></div>
+          <span class="swatch-name">Gold</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-4">
+          <div class="swatch-circle" style="background: #5C4033;"></div>
+          <span class="swatch-name">Espresso</span>
+        </div>
+        <div class="palette-swatch reveal reveal-delay-4">
+          <div class="swatch-circle" style="background: #C9B99A;"></div>
+          <span class="swatch-name">Wheat</span>
+        </div>
+      </div>
+
+      <div class="dresscode-divider"></div>
+
+      <p class="dresscode-avoid">
+        Kindly avoid wearing white, black, or neon colors.
+      </p>
+    </div>
+  </section>
+
+  <!-- PAGE 7: Gallery — Polaroid style -->
+  <section class="page">
+    <div class="gallery-header reveal">
+      <h2 class="gallery-title">Our Moments</h2>
+      <p class="gallery-subtitle">A glimpse of us</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item gallery-stagger span-tall" data-lightbox data-index="0">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-1.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="1">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-2.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="2">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-3.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="3">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-4.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="4">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-5.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="5">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-6.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="6">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-7.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="7">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-8.jpg" alt="Our moment together">
+        </div>
+      </div>
+      <div class="gallery-item gallery-stagger" data-lightbox data-index="8">
+        <div class="polaroid">
+          <img class="polaroid-image" src="gallery-9.jpg" alt="Our moment together">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: RSVP -->
+  <section class="rsvp-section">
+    <div class="rsvp-inner reveal">
+      <h2 class="rsvp-title">Will You Join Us?</h2>
+      <p class="rsvp-subtitle">Kindly reply by November 1, 2026</p>
+      <p class="rsvp-deadline">Please RSVP before the date so we can prepare accordingly.</p>
+
+      <p class="rsvp-counter" id="rsvp-counter"></p>
+
+      <form class="rsvp-form" id="rsvp-form" novalidate>
+
+        <div class="rsvp-row">
+          <div class="rsvp-field">
+            <label for="rsvp-name">Full Name</label>
+            <input type="text" id="rsvp-name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="rsvp-field">
+            <label for="rsvp-guests">No. of Guests</label>
+            <select id="rsvp-guests" name="guests">
+              <option value="1">1 — Just me</option>
+              <option value="2" selected>2 — Me + 1</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="rsvp-field">
+          <label>Attendance</label>
+          <div class="rsvp-attending">
+            <label class="rsvp-radio-label">
+              <input type="radio" name="attending" value="yes" checked>
+              Joyfully accepts
+            </label>
+            <label class="rsvp-radio-label">
+              <input type="radio" name="attending" value="no">
+              Regretfully declines
+            </label>
+          </div>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvp-message">Message <span style="opacity:.4;font-size:.8em">(optional)</span></label>
+          <textarea id="rsvp-message" name="message" placeholder="Leave a note for Kevin &amp; Thea…"></textarea>
+        </div>
+
+        <button type="submit" class="rsvp-submit" id="rsvp-submit">Send RSVP</button>
+        <p class="rsvp-status" id="rsvp-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- PAGE 7: Footer (dark) -->
+  <footer class="page page-dark">
+    <div class="reveal">
+      <p class="footer-names">
+        Kevin <span class="ampersand">&amp;</span> Thea
+      </p>
+      <p class="footer-date">December 4, 2026</p>
+      <p class="footer-message">
+        We look forward to celebrating<br>this beautiful day with you.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Lightbox with navigation -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-prev lightbox-nav" id="lb-prev" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="lightbox-image-wrapper" id="lb-img-wrapper"></div>
+    <button class="lightbox-next lightbox-nav" id="lb-next" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <button class="lightbox-close" id="lb-close" aria-label="Close lightbox">&times;</button>
+    <span class="lightbox-counter" id="lb-counter"></span>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top-btn" id="scroll-top" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    (function() {
+      // ===== CAROUSEL =====
+      var track = document.getElementById('carousel-track');
+      var dots = document.querySelectorAll('.carousel-dot');
+      var prevBtn = document.getElementById('carousel-prev');
+      var nextBtn = document.getElementById('carousel-next');
+      var progressBar = document.getElementById('carousel-progress');
+      var totalSlides = dots.length;
+      var currentSlide = 0;
+      var autoplayTimer = null;
+      var progressTimer = null;
+      var progressWidth = 0;
+      var userPausedUntil = 0;
+      var AUTOPLAY_MS = 6000;
+      var PAUSE_AFTER_INTERACTION = 8000;
+
+      function goToSlide(i) {
+        currentSlide = ((i % totalSlides) + totalSlides) % totalSlides;
+        track.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        dots.forEach(function(d, idx) { d.classList.toggle('active', idx === currentSlide); });
+        resetProgress();
+        setTimeout(function() { track.style.transition = 'none'; }, 750);
+      }
+
+      function next() { goToSlide(currentSlide + 1); }
+      function prev() { goToSlide(currentSlide - 1); }
+
+      function resetProgress() {
+        progressWidth = 0;
+        progressBar.style.width = '0%';
+        clearInterval(progressTimer);
+        progressTimer = setInterval(function() {
+          progressWidth += (50 / AUTOPLAY_MS) * 100;
+          progressBar.style.width = Math.min(progressWidth, 100) + '%';
+        }, 50);
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        var now = Date.now();
+        if (now < userPausedUntil) {
+          autoplayTimer = setTimeout(function() { startAutoplay(); }, userPausedUntil - now);
+          return;
+        }
+        resetProgress();
+        autoplayTimer = setInterval(next, AUTOPLAY_MS);
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayTimer);
+        clearInterval(progressTimer);
+        autoplayTimer = null;
+      }
+
+      function interacted() {
+        userPausedUntil = Date.now() + PAUSE_AFTER_INTERACTION;
+        startAutoplay();
+      }
+
+      prevBtn.addEventListener('click', function() { prev(); interacted(); });
+      nextBtn.addEventListener('click', function() { next(); interacted(); });
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          goToSlide(parseInt(dot.dataset.slide));
+          interacted();
+        });
+      });
+
+      // Touch swipe
+      var touchX0 = 0;
+      var carousel = document.getElementById('carousel');
+
+      carousel.addEventListener('touchstart', function(e) {
+        touchX0 = e.changedTouches[0].screenX;
+        stopAutoplay();
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', function(e) {
+        var diff = touchX0 - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) next(); else prev();
+        }
+        interacted();
+      }, { passive: true });
+
+      startAutoplay();
+
+      // ===== COUNTDOWN =====
+      var weddingDate = new Date('2026-12-04T15:00:00+08:00').getTime();
+      var cdDays = document.getElementById('cd-days');
+      var cdHours = document.getElementById('cd-hours');
+      var cdMins = document.getElementById('cd-minutes');
+      var countdownTimer = null;
+
+      function tick(el, val) {
+        var s = String(val);
+        if (el.textContent !== s) {
+          el.textContent = s;
+          el.classList.add('tick');
+          setTimeout(function() { el.classList.remove('tick'); }, 350);
+        }
+      }
+
+      function updateCountdown() {
+        var diff = weddingDate - Date.now();
+        if (diff <= 0) {
+          tick(cdDays, 0); tick(cdHours, 0); tick(cdMins, 0);
+          if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+          return;
+        }
+        tick(cdDays, Math.floor(diff / 86400000));
+        tick(cdHours, Math.floor((diff % 86400000) / 3600000));
+        tick(cdMins, Math.floor((diff % 3600000) / 60000));
+      }
+
+      updateCountdown();
+      countdownTimer = setInterval(updateCountdown, 1000);
+
+      // ===== SCROLL REVEAL =====
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      reveals.forEach(function(el) { observer.observe(el); });
+
+
+      // ===== GALLERY STAGGER REVEAL =====
+      var galleryItems = document.querySelectorAll('.gallery-stagger');
+      var galleryObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+      galleryItems.forEach(function(el) { galleryObserver.observe(el); });
+
+      // ===== LIGHTBOX WITH NAVIGATION =====
+      var lightbox = document.getElementById('lightbox');
+      var lbWrapper = document.getElementById('lb-img-wrapper');
+      var lbPrev = document.getElementById('lb-prev');
+      var lbNext = document.getElementById('lb-next');
+      var lbClose = document.getElementById('lb-close');
+      var lbCounter = document.getElementById('lb-counter');
+      var lbItems = document.querySelectorAll('[data-lightbox]');
+      var lbSources = [];
+      var lbCurrent = 0;
+      var lbTouchX0 = 0;
+
+      // Collect all gallery image sources
+      lbItems.forEach(function(item) {
+        var img = item.querySelector('img');
+        if (img) lbSources.push(img.src);
+      });
+
+      function lbShowImage(index) {
+        lbCurrent = ((index % lbSources.length) + lbSources.length) % lbSources.length;
+        var existing = lbWrapper.querySelector('img');
+        if (existing) existing.remove();
+        var img = document.createElement('img');
+        img.src = lbSources[lbCurrent];
+        img.alt = 'Photo ' + (lbCurrent + 1);
+        lbWrapper.appendChild(img);
+        lbCounter.textContent = (lbCurrent + 1) + ' / ' + lbSources.length;
+      }
+
+      function lbOpen(index) {
+        lbShowImage(index);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function lbCloseBox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        var img = lbWrapper.querySelector('img');
+        if (img) img.remove();
+      }
+
+      // Click gallery items to open
+      lbItems.forEach(function(item, i) {
+        item.addEventListener('click', function() { lbOpen(i); });
+      });
+
+      // Navigation buttons
+      lbPrev.addEventListener('click', function(e) {
+        e.stopPropagation();
+        lbShowImage(lbCurrent - 1);
+      });
+
+      lbNext.addEventListener('click', function(e) {
+        e.stopPropagation();
+        lbShowImage(lbCurrent + 1);
+      });
+
+      lbClose.addEventListener('click', function(e) {
+        e.stopPropagation();
+        lbCloseBox();
+      });
+
+      // Click backdrop to close (but not on image or nav)
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) lbCloseBox();
+      });
+
+      // Keyboard: Escape, Left, Right
+      document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') lbCloseBox();
+        if (e.key === 'ArrowLeft') lbShowImage(lbCurrent - 1);
+        if (e.key === 'ArrowRight') lbShowImage(lbCurrent + 1);
+      });
+
+      // Touch swipe in lightbox
+      lightbox.addEventListener('touchstart', function(e) {
+        lbTouchX0 = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', function(e) {
+        var diff = lbTouchX0 - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) lbShowImage(lbCurrent + 1);
+          else lbShowImage(lbCurrent - 1);
+        }
+      }, { passive: true });
+
+      // ===== ASSEMBLY EFFECT =====
+      var asmSection = document.getElementById('countdown-assembly');
+      var asmLeft = document.getElementById('asm-left');
+      var asmCenter = document.getElementById('asm-center');
+      var asmRight = document.getElementById('asm-right');
+
+      var asmObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            asmLeft.style.transform = 'translateX(0)';
+            asmLeft.style.opacity = '1';
+            asmCenter.style.transform = 'translateY(0)';
+            asmCenter.style.opacity = '1';
+            asmRight.style.transform = 'translateX(0)';
+            asmRight.style.opacity = '1';
+          } else {
+            asmLeft.style.transform = 'translateX(-80px)';
+            asmLeft.style.opacity = '0';
+            asmCenter.style.transform = 'translateY(40px)';
+            asmCenter.style.opacity = '0';
+            asmRight.style.transform = 'translateX(80px)';
+            asmRight.style.opacity = '0';
+          }
+        });
+      }, { threshold: 0.2 });
+
+      asmObserver.observe(asmSection);
+
+      // ===== RSVP =====
+      var APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+      var rsvpForm    = document.getElementById('rsvp-form');
+      var rsvpSubmit  = document.getElementById('rsvp-submit');
+      var rsvpStatus  = document.getElementById('rsvp-status');
+      var rsvpCounter = document.getElementById('rsvp-counter');
+
+      // Load live RSVP count on page load
+      if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+        fetch(APPS_SCRIPT_URL + '?action=count')
+          .then(function(r) { return r.json(); })
+          .then(function(d) {
+            if (d.count > 0) {
+              rsvpCounter.innerHTML = '<span>' + d.count + '</span> guest' + (d.count !== 1 ? 's' : '') + ' have already RSVP\'d ♥';
+            }
+          })
+          .catch(function() {});
+      }
+
+      rsvpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('rsvp-name').value.trim();
+        if (!name) {
+          rsvpStatus.textContent = 'Please enter your name.';
+          rsvpStatus.className = 'rsvp-status error';
+          return;
+        }
+        if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+          rsvpStatus.textContent = 'RSVP backend not yet connected. See setup instructions.';
+          rsvpStatus.className = 'rsvp-status error';
+          return;
+        }
+        rsvpSubmit.disabled = true;
+        rsvpSubmit.textContent = 'Sending…';
+        rsvpStatus.textContent = '';
+        rsvpStatus.className = 'rsvp-status';
+
+        var data = {
+          name:      name,
+          guests:    document.getElementById('rsvp-guests').value,
+          attending: rsvpForm.querySelector('[name=attending]:checked').value,
+          message:   document.getElementById('rsvp-message').value.trim()
+        };
+
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function() {
+          rsvpStatus.textContent = data.attending === 'yes'
+            ? 'We\'re so happy you\'re coming! See you on December 4 ♥'
+            : 'Thank you for letting us know. You will be missed!';
+          rsvpStatus.className = 'rsvp-status';
+          rsvpSubmit.textContent = 'RSVP Sent!';
+          rsvpForm.reset();
+          // Bump counter locally
+          var current = parseInt(rsvpCounter.querySelector('span') ? rsvpCounter.querySelector('span').textContent : '0') || 0;
+          var next = current + 1;
+          rsvpCounter.innerHTML = '<span>' + next + '</span> guest' + (next !== 1 ? 's' : '') + ' have already RSVP\'d ♥';
+        })
+        .catch(function() {
+          rsvpStatus.textContent = 'Something went wrong. Please try again.';
+          rsvpStatus.className = 'rsvp-status error';
+          rsvpSubmit.disabled = false;
+          rsvpSubmit.textContent = 'Send RSVP';
+        });
+      });
+
+      // ===== SCROLL TO TOP =====
+      var scrollBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(function() {
+          scrollBtn.classList.toggle('visible', window.scrollY > 500);
+        });
+      }, { passive: true });
+
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // ===== QR CODES =====
+      function generateQR() {
+        if (typeof QRCode === 'undefined') return false;
+        var size = window.innerWidth < 400 ? 110 : 130;
+        var opts = { width: size, height: size, colorDark: '#3D2E1F', colorLight: '#FDF8F0', correctLevel: QRCode.CorrectLevel.M };
+
+        try {
+          new QRCode(document.getElementById('qr-ceremony'), Object.assign({}, opts, {
+            text: 'https://www.google.com/maps/search/?api=1&query=Ciudad+de+Victoria+Philippine+Arena+Bocaue+Bulacan'
+          }));
+          new QRCode(document.getElementById('qr-reception'), Object.assign({}, opts, {
+            text: 'https://www.google.com/maps/search/?api=1&query=Angel+Gabriels+Garden+146+JP+Rizal+St+San+Gabriel+Santa+Maria+Bulacan'
+          }));
+        } catch (e) { console.warn('QR generation failed', e); }
+        return true;
+      }
+
+      function waitForQR(attempts) {
+        if (generateQR()) return;
+        if (attempts < 40) setTimeout(function() { waitForQR(attempts + 1); }, 120);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() { waitForQR(0); });
+      } else {
+        waitForQR(0);
+      }
+    })();
+  </script>
+</body>
+</html>
