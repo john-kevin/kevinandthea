@@ -673,6 +673,39 @@
     }
 
     /* Schedule / Venues */
+    /* ===== VINE HEADING ===== */
+    .vine-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      position: relative;
+    }
+
+    .vine-heading .vine-svg {
+      flex-shrink: 0;
+      opacity: 0.55;
+    }
+
+    .vine-heading .vine-svg.vine-flip {
+      transform: scaleX(-1);
+    }
+
+    @keyframes vine-grow {
+      from { stroke-dashoffset: 400; opacity: 0; }
+      to   { stroke-dashoffset: 0;   opacity: 0.55; }
+    }
+
+    .vine-heading.visible .vine-svg path,
+    .vine-heading.visible .vine-svg circle {
+      animation: vine-grow 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    .vine-heading.visible .vine-svg.vine-flip path,
+    .vine-heading.visible .vine-svg.vine-flip circle {
+      animation-delay: 0.15s;
+    }
+
     .schedule-heading {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(2rem, 5vw, 2.8rem);
@@ -2005,7 +2038,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.11</span>
+    <span>v0.0.12</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2227,7 +2260,29 @@
   <!-- PAGE 4: Wedding Day Schedule (cream) -->
   <section class="page">
     <div class="page-inner reveal">
-      <h2 class="schedule-heading">Wedding Day Schedule</h2>
+      <h2 class="schedule-heading vine-heading reveal">
+        <svg class="vine-svg" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none" stroke-dasharray="400" style="stroke-dashoffset:0"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+        Wedding Day Schedule
+        <svg class="vine-svg vine-flip" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none" stroke-dasharray="400" style="stroke-dashoffset:0"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+      </h2>
       <div class="schedule-grid">
         <div class="schedule-time">3:00 PM</div>
         <div class="schedule-line"></div>
@@ -2263,7 +2318,29 @@
   <!-- PAGE 5: Venues side by side with travel path -->
   <section class="page">
     <div class="reveal">
-      <h2 class="venues-heading">Our Venues</h2>
+      <h2 class="venues-heading vine-heading reveal">
+        <svg class="vine-svg" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+        Our Venues
+        <svg class="vine-svg vine-flip" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+      </h2>
       <div class="venues-layout">
         <!-- Ceremony -->
         <div class="venue-card">
@@ -2327,7 +2404,29 @@
   <!-- PAGE 6: Dress Code & Color Palette -->
   <section class="dresscode-section">
     <div class="dresscode-inner reveal">
-      <h2 class="dresscode-title">Dress Code</h2>
+      <h2 class="dresscode-title vine-heading reveal">
+        <svg class="vine-svg" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+        Dress Code
+        <svg class="vine-svg vine-flip" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+      </h2>
       <p class="dresscode-subtitle">Semi-formal &bull; Garden attire</p>
 
       <p class="dresscode-note">
@@ -2381,7 +2480,29 @@
   <!-- PAGE 7: Gallery — Polaroid style -->
   <section class="page">
     <div class="gallery-header reveal">
-      <h2 class="gallery-title">Our Moments</h2>
+      <h2 class="gallery-title vine-heading reveal">
+        <svg class="vine-svg" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+        Our Moments
+        <svg class="vine-svg vine-flip" width="64" height="40" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 36 C10 30, 14 22, 22 20 C30 18, 36 24, 44 18 C50 14, 54 8, 60 6" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          <path d="M22 20 C20 14, 16 10, 14 6" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <path d="M36 22 C38 16, 42 13, 46 10" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <ellipse cx="13" cy="5" rx="4" ry="2.5" transform="rotate(-30 13 5)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="47" cy="9" rx="3.5" ry="2.2" transform="rotate(-20 47 9)" fill="#7A8C6E" opacity="0.7"/>
+          <ellipse cx="22" cy="19" rx="3" ry="1.8" transform="rotate(10 22 19)" fill="#6B7F5A" opacity="0.5"/>
+          <circle cx="60" cy="6" r="2" fill="#C17A56" opacity="0.6"/>
+          <circle cx="4" cy="36" r="1.5" fill="#C17A56" opacity="0.5"/>
+        </svg>
+      </h2>
       <p class="gallery-subtitle">A glimpse of us</p>
     </div>
     <div class="gallery-grid" id="gallery-grid">
