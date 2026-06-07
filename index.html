@@ -992,6 +992,7 @@
     .swatch-circle:hover {
       transform: scale(1.12);
       box-shadow: 0 4px 16px rgba(61, 46, 31, 0.18);
+      cursor: pointer;
     }
 
     .swatch-name {
@@ -1046,6 +1047,10 @@
     .dress-guide-img:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 28px rgba(61,46,31,0.15);
+    }
+
+    .dress-guide-clickable {
+      cursor: pointer;
     }
 
     .dresscode-avoid {
@@ -2000,7 +2005,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.9</span>
+    <span>v0.0.10</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2337,32 +2342,20 @@
           <span class="swatch-name">Toffee</span>
         </div>
         <div class="palette-swatch reveal reveal-delay-1">
-          <div class="swatch-circle" style="background: #A67B5B;"></div>
-          <span class="swatch-name">Camel</span>
+          <div class="swatch-circle" style="background: #D4A69A;"></div>
+          <span class="swatch-name">Dusty Rose</span>
         </div>
         <div class="palette-swatch reveal reveal-delay-2">
           <div class="swatch-circle" style="background: #C17A56;"></div>
           <span class="swatch-name">Terracotta</span>
         </div>
         <div class="palette-swatch reveal reveal-delay-2">
-          <div class="swatch-circle" style="background: #7A8C6E;"></div>
-          <span class="swatch-name">Sage</span>
-        </div>
-        <div class="palette-swatch reveal reveal-delay-3">
-          <div class="swatch-circle" style="background: #D4A69A;"></div>
-          <span class="swatch-name">Dusty Rose</span>
-        </div>
-        <div class="palette-swatch reveal reveal-delay-3">
-          <div class="swatch-circle" style="background: #B8944F;"></div>
-          <span class="swatch-name">Gold</span>
-        </div>
-        <div class="palette-swatch reveal reveal-delay-4">
           <div class="swatch-circle" style="background: #5C4033;"></div>
           <span class="swatch-name">Espresso</span>
         </div>
-        <div class="palette-swatch reveal reveal-delay-4">
-          <div class="swatch-circle" style="background: #C9B99A;"></div>
-          <span class="swatch-name">Wheat</span>
+        <div class="palette-swatch reveal reveal-delay-3">
+          <div class="swatch-circle" style="background: #6B7F5A;"></div>
+          <span class="swatch-name">Olive Green</span>
         </div>
       </div>
 
@@ -2371,11 +2364,11 @@
       <div class="dress-guide-grid">
         <div class="dress-guide-card reveal reveal-delay-1">
           <span class="dress-guide-label">For Him</span>
-          <img class="dress-guide-img" src="dress-guide-men.png" alt="Men's dress guide" loading="lazy" decoding="async">
+          <img class="dress-guide-img dress-guide-clickable" src="dress-guide-men.png" alt="Men's dress guide" loading="lazy" decoding="async" data-full="dress-guide-men.png">
         </div>
         <div class="dress-guide-card reveal reveal-delay-2">
           <span class="dress-guide-label">For Her</span>
-          <img class="dress-guide-img" src="dress-guide-women.png" alt="Women's dress guide" loading="lazy" decoding="async">
+          <img class="dress-guide-img dress-guide-clickable" src="dress-guide-women.png" alt="Women's dress guide" loading="lazy" decoding="async" data-full="dress-guide-women.png">
         </div>
       </div>
 
@@ -2765,6 +2758,56 @@
           else lbShowImage(lbCurrent - 1);
         }
       }, { passive: true });
+
+      // ===== SWATCH COLOR PREVIEW =====
+      var dressSection = document.querySelector('.dresscode-section');
+      var swatches = document.querySelectorAll('.swatch-circle');
+      var originalBg = getComputedStyle(dressSection).backgroundColor;
+
+      swatches.forEach(function(swatch) {
+        swatch.addEventListener('click', function() {
+          var color = swatch.style.background || swatch.style.backgroundColor;
+          dressSection.style.transition = 'background-color 0.5s ease';
+          dressSection.style.backgroundColor = color;
+        });
+      });
+
+      // Double-click to reset
+      dressSection.addEventListener('dblclick', function(e) {
+        if (!e.target.classList.contains('swatch-circle')) {
+          dressSection.style.backgroundColor = originalBg;
+        }
+      });
+
+      // ===== DRESS GUIDE LIGHTBOX =====
+      var dressGuideImages = document.querySelectorAll('.dress-guide-clickable');
+      var dressGuideSources = [];
+      dressGuideImages.forEach(function(img) {
+        dressGuideSources.push(img.getAttribute('data-full') || img.src);
+      });
+
+      dressGuideImages.forEach(function(img, i) {
+        img.addEventListener('click', function() {
+          lbCurrent = 0;
+          var tempSources = lbSources;
+          lbSources = dressGuideSources;
+          lbShowImage(i);
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          var restoreHandler = function() {
+            lbSources = tempSources;
+            lightbox.removeEventListener('lightbox-closed', restoreHandler);
+          };
+          lightbox.addEventListener('lightbox-closed', restoreHandler);
+        });
+      });
+
+      // Patch lbCloseBox to dispatch event
+      var _origLbCloseBox = lbCloseBox;
+      lbCloseBox = function() {
+        _origLbCloseBox();
+        lightbox.dispatchEvent(new Event('lightbox-closed'));
+      };
 
       // ===== ASSEMBLY EFFECT =====
       var asmSection = document.getElementById('countdown-assembly');
