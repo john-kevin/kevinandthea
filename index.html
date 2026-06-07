@@ -1718,6 +1718,69 @@
       background: var(--forest);
     }
 
+    /* ===== GIFT GUIDE ===== */
+    .gift-section {
+      background: var(--linen);
+      padding: 7rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gift-bg-svgs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .gift-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gift-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      color: var(--espresso);
+      margin-bottom: 0.3rem;
+    }
+
+    .gift-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 2rem;
+    }
+
+    .gift-icon {
+      margin: 0 auto 1.8rem;
+      display: block;
+    }
+
+    .gift-message {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--espresso);
+      line-height: 2.1;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+
+    .gift-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--sage), transparent);
+      opacity: 0.35;
+      margin: 0 auto;
+    }
+
     /* ===== FOOTER ===== */
     .footer {
       position: relative;
@@ -2101,7 +2164,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.15</span>
+    <span>v0.0.16</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2675,6 +2738,128 @@
         </div>
         <p class="rsvp-status" id="rsvp-status"></p>
       </form>
+    </div>
+  </section>
+
+  <!-- PAGE: Gift Guide -->
+  <section class="gift-section">
+
+    <!-- ===== DECORATIVE SVG BACKGROUND ===== -->
+    <div class="gift-bg-svgs" aria-hidden="true">
+
+      <!-- TOP-LEFT: large gift box -->
+      <svg style="position:absolute;top:-30px;left:-40px;opacity:0.07;" width="260" height="260" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="32" width="64" height="44" rx="2" fill="#7A8C6E"/>
+        <rect x="8" y="22" width="64" height="12" rx="2" fill="#C17A56"/>
+        <rect x="36" y="22" width="8" height="54" fill="#D4A69A"/>
+        <!-- bow loops -->
+        <path d="M40 22 Q28 10 20 16 Q14 22 28 24 Q34 22 40 22Z" fill="#D4A69A"/>
+        <path d="M40 22 Q52 10 60 16 Q66 22 52 24 Q46 22 40 22Z" fill="#D4A69A"/>
+        <circle cx="40" cy="22" r="4" fill="#B8944F"/>
+      </svg>
+
+      <!-- TOP-RIGHT: wedding rings -->
+      <svg style="position:absolute;top:40px;right:30px;opacity:0.09;" width="180" height="180" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="20" r="13" stroke="#B8944F" stroke-width="3" fill="none"/>
+        <circle cx="38" cy="20" r="13" stroke="#D4A69A" stroke-width="3" fill="none"/>
+        <path d="M19 10 Q22 5 25 10" stroke="#B8944F" stroke-width="1.5" fill="none"/>
+        <circle cx="22" cy="8" r="2" fill="#B8944F" opacity="0.6"/>
+      </svg>
+
+      <!-- CENTER-LEFT: large rose -->
+      <svg style="position:absolute;top:35%;left:-20px;opacity:0.06;" width="200" height="200" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="10" fill="#D4A69A"/>
+        <ellipse cx="30" cy="18" rx="8" ry="10" fill="#D4A69A" opacity="0.8"/>
+        <ellipse cx="42" cy="24" rx="8" ry="10" fill="#C17A56" opacity="0.7" transform="rotate(45 42 24)"/>
+        <ellipse cx="42" cy="36" rx="8" ry="10" fill="#D4A69A" opacity="0.75" transform="rotate(90 42 36)"/>
+        <ellipse cx="30" cy="42" rx="8" ry="10" fill="#C17A56" opacity="0.7" transform="rotate(135 30 42)"/>
+        <ellipse cx="18" cy="36" rx="8" ry="10" fill="#D4A69A" opacity="0.75" transform="rotate(180 18 36)"/>
+        <ellipse cx="18" cy="24" rx="8" ry="10" fill="#C17A56" opacity="0.7" transform="rotate(225 18 24)"/>
+        <line x1="30" y1="50" x2="30" y2="65" stroke="#7A8C6E" stroke-width="2"/>
+        <path d="M30 56 Q24 52 22 56" fill="#7A8C6E" opacity="0.6"/>
+      </svg>
+
+      <!-- CENTER-RIGHT: ribbon/bow -->
+      <svg style="position:absolute;top:40%;right:-10px;opacity:0.08;" width="160" height="160" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25 25 Q10 8 5 12 Q2 18 16 22 Q20 23 25 25Z" fill="#C17A56"/>
+        <path d="M25 25 Q40 8 45 12 Q48 18 34 22 Q30 23 25 25Z" fill="#C17A56"/>
+        <path d="M25 25 Q10 42 5 38 Q2 32 16 28 Q20 27 25 25Z" fill="#D4A69A"/>
+        <path d="M25 25 Q40 42 45 38 Q48 32 34 28 Q30 27 25 25Z" fill="#D4A69A"/>
+        <circle cx="25" cy="25" r="4" fill="#B8944F"/>
+      </svg>
+
+      <!-- BOTTOM-LEFT: small gift box -->
+      <svg style="position:absolute;bottom:20px;left:60px;opacity:0.07;transform:rotate(-12deg);" width="120" height="120" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="26" width="48" height="30" rx="2" fill="#C17A56"/>
+        <rect x="6" y="16" width="48" height="12" rx="2" fill="#7A8C6E"/>
+        <rect x="27" y="16" width="6" height="40" fill="#B8944F"/>
+        <path d="M30 16 Q22 7 16 12 Q12 17 22 18 Q26 17 30 16Z" fill="#B8944F"/>
+        <path d="M30 16 Q38 7 44 12 Q48 17 38 18 Q34 17 30 16Z" fill="#B8944F"/>
+        <circle cx="30" cy="16" r="3" fill="#D4A69A"/>
+      </svg>
+
+      <!-- BOTTOM-CENTER: scattered sparkles -->
+      <svg style="position:absolute;bottom:60px;left:50%;transform:translateX(-50%);opacity:0.1;" width="320" height="60" viewBox="0 0 320 60" fill="none">
+        <path d="M20 30 L22 24 L24 30 L30 32 L24 34 L22 40 L20 34 L14 32Z" fill="#B8944F"/>
+        <path d="M80 15 L81.5 10 L83 15 L88 16.5 L83 18 L81.5 23 L80 18 L75 16.5Z" fill="#D4A69A"/>
+        <path d="M160 40 L162 33 L164 40 L171 42 L164 44 L162 51 L160 44 L153 42Z" fill="#7A8C6E"/>
+        <path d="M240 12 L241.5 7 L243 12 L248 13.5 L243 15 L241.5 20 L240 15 L235 13.5Z" fill="#C17A56"/>
+        <path d="M300 35 L302 28 L304 35 L311 37 L304 39 L302 46 L300 39 L293 37Z" fill="#B8944F"/>
+      </svg>
+
+      <!-- BOTTOM-RIGHT: leaves cluster -->
+      <svg style="position:absolute;bottom:-10px;right:-20px;opacity:0.08;" width="200" height="180" viewBox="0 0 60 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 50 C40 50 20 40 15 20 C25 15 45 25 40 50Z" fill="#7A8C6E"/>
+        <path d="M40 50 C40 50 55 35 58 15 C45 12 32 28 40 50Z" fill="#2C3A2A" opacity="0.7"/>
+        <path d="M40 50 C40 50 30 30 35 10 C48 12 52 35 40 50Z" fill="#7A8C6E" opacity="0.6"/>
+        <line x1="40" y1="50" x2="28" y2="22" stroke="#5A7A4E" stroke-width="0.8" opacity="0.5"/>
+        <line x1="40" y1="50" x2="52" y2="20" stroke="#5A7A4E" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+
+      <!-- TOP-CENTER: small scattered petals -->
+      <svg style="position:absolute;top:20px;left:50%;transform:translateX(-50%);opacity:0.08;" width="300" height="50" viewBox="0 0 300 50" fill="none">
+        <ellipse cx="30" cy="25" rx="8" ry="14" fill="#D4A69A" transform="rotate(-20 30 25)"/>
+        <ellipse cx="80" cy="15" rx="6" ry="11" fill="#C17A56" transform="rotate(15 80 15)" opacity="0.7"/>
+        <ellipse cx="150" cy="30" rx="7" ry="13" fill="#D4A69A" transform="rotate(-10 150 30)"/>
+        <ellipse cx="220" cy="12" rx="6" ry="10" fill="#B8944F" transform="rotate(25 220 12)" opacity="0.8"/>
+        <ellipse cx="270" cy="28" rx="8" ry="14" fill="#C17A56" transform="rotate(-15 270 28)" opacity="0.7"/>
+      </svg>
+
+    </div>
+    <!-- ===== END DECORATIVE BG ===== -->
+
+    <div class="gift-inner">
+
+      <!-- Central ring + gift icon -->
+      <svg class="gift-icon" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- outer ring glow -->
+        <circle cx="36" cy="36" r="30" stroke="#D4A69A" stroke-width="0.5" opacity="0.3" fill="none" stroke-dasharray="4 3"/>
+        <!-- gift box -->
+        <rect x="18" y="34" width="36" height="26" rx="2" fill="#7A8C6E" opacity="0.85"/>
+        <rect x="18" y="24" width="36" height="12" rx="2" fill="#C17A56" opacity="0.9"/>
+        <rect x="33" y="24" width="6" height="36" fill="#D4A69A"/>
+        <!-- bow -->
+        <path d="M36 24 Q26 14 20 19 Q16 25 28 27 Q32 25 36 24Z" fill="#D4A69A"/>
+        <path d="M36 24 Q46 14 52 19 Q56 25 44 27 Q40 25 36 24Z" fill="#D4A69A"/>
+        <circle cx="36" cy="24" r="3.5" fill="#B8944F"/>
+        <!-- sparkle top-right -->
+        <path d="M58 14 L59.2 10 L60.4 14 L64 15.2 L60.4 16.4 L59.2 20 L58 16.4 L54.4 15.2Z" fill="#B8944F" opacity="0.7"/>
+        <!-- sparkle left -->
+        <path d="M10 38 L11 35 L12 38 L15 39 L12 40 L11 43 L10 40 L7 39Z" fill="#D4A69A" opacity="0.6"/>
+      </svg>
+
+      <h2 class="gift-title reveal">A Gift from the Heart</h2>
+      <p class="gift-subtitle reveal">Optional &bull; With love</p>
+
+      <p class="gift-message reveal">
+        Your presence at our wedding is the greatest gift of all.<br>
+        However, should you wish to honor us with a gift,<br>
+        a contribution towards our future together<br>
+        would be sincerely appreciated.
+      </p>
+
+      <div class="gift-divider"></div>
+
     </div>
   </section>
 
@@ -3330,6 +3515,37 @@
 
       if (heroSection) heroObserver.observe(heroSection);
       if (rsvpSectionEl) rsvpObserver.observe(rsvpSectionEl);
+
+      // ===== GIFT COPY BUTTONS =====
+      document.querySelectorAll('.gift-copy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var text = btn.getAttribute('data-copy');
+          if (!text) return;
+          navigator.clipboard.writeText(text).then(function() {
+            btn.classList.add('copied');
+            btn.textContent = 'Copied!';
+            setTimeout(function() {
+              btn.classList.remove('copied');
+              btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy number';
+            }, 2000);
+          }).catch(function() {
+            // Fallback for older browsers
+            var el = document.createElement('textarea');
+            el.value = text;
+            el.style.position = 'fixed'; el.style.opacity = '0';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            el.remove();
+            btn.classList.add('copied');
+            btn.textContent = 'Copied!';
+            setTimeout(function() {
+              btn.classList.remove('copied');
+              btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy number';
+            }, 2000);
+          });
+        });
+      });
 
       // ===== SCROLL TO TOP =====
       var scrollBtn = document.getElementById('scroll-top');
