@@ -1122,6 +1122,30 @@
     }
 
     /* ===== GALLERY — Polaroid Style ===== */
+    /* Dark background + center spotlight */
+    #gallery {
+      background: var(--forest);
+    }
+
+    #gallery::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 75% 65% at 50% 48%,
+        rgba(44, 58, 42, 0) 0%,
+        rgba(14, 22, 14, 0.72) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #gallery .gallery-header,
+    #gallery .gallery-grid {
+      position: relative;
+      z-index: 1;
+    }
+
     .gallery-header {
       text-align: center;
       margin-bottom: 2rem;
@@ -1130,7 +1154,7 @@
     .gallery-title {
       font-family: 'Great Vibes', cursive;
       font-size: 2.4rem;
-      color: var(--espresso);
+      color: var(--cream);
       margin-bottom: 0.3rem;
     }
 
@@ -1140,7 +1164,7 @@
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: var(--dusty-rose);
     }
 
     .gallery-grid {
@@ -1162,7 +1186,10 @@
       background: var(--cream);
       padding: 7px 7px 0 7px;
       border: 1px solid rgba(61, 46, 31, 0.08);
-      box-shadow: 0 2px 12px rgba(61, 46, 31, 0.1), 0 1px 3px rgba(61, 46, 31, 0.06);
+      box-shadow:
+        0 6px 28px rgba(0, 0, 0, 0.55),
+        0 2px 8px  rgba(0, 0, 0, 0.35),
+        0 0  0 0.5px rgba(255,255,255,0.04);
       border-radius: 2px;
     }
 
@@ -1184,6 +1211,48 @@
     }
 
     /* Final resting tilts — applied by JS after assembly */
+
+    /* Washi tape strips — ::before on every polaroid item */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      height: 14px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+      z-index: 10;
+      pointer-events: none;
+      /* Fine fiber texture via repeating gradient */
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.07) 0px,
+        rgba(255,255,255,0.07) 2px,
+        transparent 2px,
+        transparent 5px
+      );
+    }
+
+    /* Sage — items 1, 4, 7 */
+    .gallery-item:nth-child(3n+1)::before {
+      background-color: rgba(122, 140, 110, 0.62);
+      width: 38px;
+      transform: translateX(-50%) rotate(-4deg);
+    }
+
+    /* Dusty rose — items 2, 5, 8 */
+    .gallery-item:nth-child(3n+2)::before {
+      background-color: rgba(212, 166, 154, 0.58);
+      width: 32px;
+      transform: translateX(-50%) rotate(3.5deg);
+    }
+
+    /* Gold — items 3, 6, 9 */
+    .gallery-item:nth-child(3n)::before {
+      background-color: rgba(184, 148, 79, 0.50);
+      width: 40px;
+      transform: translateX(-50%) rotate(-1.5deg);
+    }
 
     /* Varied sizes — some span 2 rows or 2 columns */
     .gallery-item.span-tall {
@@ -2452,7 +2521,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.23</span>
+    <span>v0.0.24</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2992,46 +3061,55 @@
       <div class="gallery-item gallery-stagger span-tall" data-lightbox data-index="0">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-1.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">always.</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="1">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-2.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">us.</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="2">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-3.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">golden hour</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="3">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-4.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">&amp; forever</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="4">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-5.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">our story</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="5">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-6.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">love notes</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="6">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-7.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">together</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="7">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-8.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">cherished</p>
         </div>
       </div>
       <div class="gallery-item gallery-stagger" data-lightbox data-index="8">
         <div class="polaroid">
           <img class="polaroid-image" src="gallery-9.jpg" alt="Our moment together" loading="lazy" decoding="async">
+          <p class="polaroid-caption">forever yours</p>
         </div>
       </div>
     </div>
