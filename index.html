@@ -820,6 +820,34 @@
       margin-top: 0.4rem;
     }
 
+    .venue-directions-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.85rem;
+      padding: 0.5rem 1.1rem;
+      background: var(--sage);
+      color: var(--cream);
+      border: none;
+      border-radius: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .venue-directions-btn:hover {
+      background: var(--forest);
+      transform: translateY(-1px);
+    }
+    .venue-directions-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
     /* Travel path between venues */
     .venue-path {
       display: flex;
@@ -2142,6 +2170,10 @@
           <p class="venue-card-address">Ciudad de Victoria Complex<br>Philippine Arena, Barangay Duhat<br>Bocaue, Bulacan 3018</p>
           <div class="venue-qr" id="qr-ceremony"></div>
           <p class="venue-qr-label">Scan for directions</p>
+          <a class="venue-directions-btn" href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Victoria+Philippine+Arena+Bocaue+Bulacan" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Get Directions
+          </a>
         </div>
 
         <!-- Travel path -->
@@ -2181,6 +2213,10 @@
           <p class="venue-card-address">146 J.P. Rizal St., San Gabriel<br>Santa Maria, Bulacan 3022<br>Philippines</p>
           <div class="venue-qr" id="qr-reception"></div>
           <p class="venue-qr-label">Scan for directions</p>
+          <a class="venue-directions-btn" href="https://www.google.com/maps/search/?api=1&query=Angel+Gabriels+Garden+146+JP+Rizal+St+San+Gabriel+Santa+Maria+Bulacan" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Get Directions
+          </a>
         </div>
       </div>
     </div>
