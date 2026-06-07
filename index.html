@@ -2387,7 +2387,7 @@
   <!-- DEV WARNING BANNER -->
   <div class="dev-banner" role="alert">
     <strong>⚠ DEV</strong> This is a development version — not the final site.
-    <span>v0.0.19</span>
+    <span>v0.0.20</span>
   </div>
 
   <!-- ===== FALLING GARDEN OVERLAY ===== -->
@@ -2703,9 +2703,11 @@
           <p class="venue-card-time">3:00 PM &bull; Ceremony</p>
           <p class="venue-card-name">INC Local of Ciudad De Victoria</p>
           <p class="venue-card-address">Ciudad de Victoria Complex<br>Philippine Arena, Barangay Duhat<br>Bocaue, Bulacan 3018</p>
-          <div class="venue-qr" id="qr-ceremony"></div>
+          <div class="venue-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3D14.7951571%2C120.9492148" alt="Ceremony location QR code" width="130" height="130" loading="lazy">
+          </div>
           <p class="venue-qr-label">Scan for directions</p>
-          <a class="venue-directions-btn" href="https://www.google.com/maps/search/?api=1&query=Ciudad+de+Victoria+Philippine+Arena+Bocaue+Bulacan" target="_blank" rel="noopener">
+          <a class="venue-directions-btn" href="https://www.google.com/maps/dir//Iglesia+Ni+Cristo+%5BBulacan+South%5D+-+Ciudad+De+Victoria,+Philippine+Arena,+Bocaue,+Bulacan/@14.7952083,120.9301276,3446m/data=!3m1!1e3!4m18!1m8!3m7!1s0x3397ad9743d39081:0xe9b817c585bdcb8f!2sIglesia+Ni+Cristo+%5BBulacan+South%5D+-+Ciudad+De+Victoria!8m2!3d14.7952083!4d120.949182!15sChtsb2thbCBuZyBjaXVkYWQgZGUgdmljdG9yaWGSARBwbGFjZV9vZl93b3JzaGlw4AEA!16s%2Fg%2F11f11nmcr1!4m8!1m0!1m5!1m1!1s0x3397ad9743d39081:0xe9b817c585bdcb8f!2m2!1d120.9492148!2d14.7951571!3e0?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Get Directions
           </a>
@@ -2792,7 +2794,9 @@
           <p class="venue-card-time">4:00 PM &bull; Reception</p>
           <p class="venue-card-name">Angel Gabriel's Garden</p>
           <p class="venue-card-address">146 J.P. Rizal St., San Gabriel<br>Santa Maria, Bulacan 3022<br>Philippines</p>
-          <div class="venue-qr" id="qr-reception"></div>
+          <div class="venue-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAngel%2BGabriels%2BGarden%2B146%2BJP%2BRizal%2BSt%2BSan%2BGabriel%2BSanta%2BMaria%2BBulacan" alt="Reception location QR code" width="130" height="130" loading="lazy">
+          </div>
           <p class="venue-qr-label">Scan for directions</p>
           <a class="venue-directions-btn" href="https://www.google.com/maps/search/?api=1&query=Angel+Gabriels+Garden+146+JP+Rizal+St+San+Gabriel+Santa+Maria+Bulacan" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -3195,8 +3199,6 @@
     <span class="heart">&#9829;</span> RSVP
   </a>
 
-  <!-- QR Code Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     (function() {
       // ===== CAROUSEL =====
@@ -3918,43 +3920,6 @@
       scrollBtn.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-
-      // ===== QR CODES =====
-      var qrGenerated = false;
-      function generateQR() {
-        if (typeof QRCode === 'undefined') return false;
-        if (qrGenerated) return true;
-        var size = window.innerWidth < 400 ? 110 : 130;
-        var opts = { width: size, height: size, colorDark: '#3D2E1F', colorLight: '#FDF8F0', correctLevel: QRCode.CorrectLevel.M };
-        try {
-          var elCeremony = document.getElementById('qr-ceremony');
-          var elReception = document.getElementById('qr-reception');
-          elCeremony.innerHTML = '';
-          elReception.innerHTML = '';
-          new QRCode(elCeremony, Object.assign({}, opts, {
-            text: 'https://www.google.com/maps/search/?api=1&query=Ciudad+de+Victoria+Philippine+Arena+Bocaue+Bulacan'
-          }));
-          new QRCode(elReception, Object.assign({}, opts, {
-            text: 'https://www.google.com/maps/search/?api=1&query=Angel+Gabriels+Garden+146+JP+Rizal+St+San+Gabriel+Santa+Maria+Bulacan'
-          }));
-          qrGenerated = true;
-          return true;
-        } catch (e) {
-          console.warn('QR generation failed', e);
-          return false;
-        }
-      }
-
-      function waitForQR(attempts) {
-        if (generateQR()) return;
-        if (attempts < 40) setTimeout(function() { waitForQR(attempts + 1); }, 120);
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() { waitForQR(0); });
-      } else {
-        waitForQR(0);
-      }
 
       // ===== REACTION OVERLAY =====
       var reactionOverlay = document.getElementById('reaction-overlay');
