@@ -114,7 +114,7 @@
         opacity: 0;
       }
       8% {
-        opacity: 1;
+        opacity: 0.65;
       }
       25% {
         transform: translateY(22vh) translateX(15px) rotate(45deg) scale(0.97);
@@ -126,7 +126,7 @@
         transform: translateY(74vh) translateX(20px) rotate(200deg) scale(0.91);
       }
       92% {
-        opacity: 1;
+        opacity: 0.65;
       }
       100% {
         transform: translateY(105vh) translateX(-5px) rotate(280deg) scale(0.88);
@@ -140,7 +140,7 @@
         opacity: 0;
       }
       8% {
-        opacity: 1;
+        opacity: 0.65;
       }
       25% {
         transform: translateY(20vh) translateX(-18px) rotate(-55deg) scale(0.96);
@@ -152,7 +152,7 @@
         transform: translateY(72vh) translateX(-22px) rotate(-210deg) scale(0.9);
       }
       92% {
-        opacity: 1;
+        opacity: 0.65;
       }
       100% {
         transform: translateY(105vh) translateX(8px) rotate(-300deg) scale(0.87);
@@ -166,7 +166,7 @@
         opacity: 0;
       }
       8% {
-        opacity: 1;
+        opacity: 0.65;
       }
       30% {
         transform: translateY(25vh) translateX(25px) rotate(80deg) scale(0.95);
@@ -175,7 +175,7 @@
         transform: translateY(55vh) translateX(-15px) rotate(170deg) scale(0.92);
       }
       92% {
-        opacity: 1;
+        opacity: 0.65;
       }
       100% {
         transform: translateY(105vh) translateX(10px) rotate(250deg) scale(0.88);
@@ -212,22 +212,22 @@
 
     /* Leaf positions & timings — 20 elements, varied */
     .falling-leaf:nth-child(1)  { left: 3%;  animation: leaf-fall 18s ease-in-out 0s infinite; }
-    .falling-leaf:nth-child(2)  { left: 10%; animation: leaf-fall-alt 22s ease-in-out 2s infinite; }
+    .falling-leaf:nth-child(2)  { display: none; }
     .falling-leaf:nth-child(3)  { left: 18%; animation: leaf-fall-drift 20s ease-in-out 5s infinite; }
     .falling-leaf:nth-child(4)  { left: 25%; animation: leaf-fall 25s ease-in-out 1s infinite; }
-    .falling-leaf:nth-child(5)  { left: 33%; animation: leaf-fall-alt 19s ease-in-out 8s infinite; }
+    .falling-leaf:nth-child(5)  { display: none; }
     .falling-leaf:nth-child(6)  { left: 42%; animation: leaf-fall-drift 23s ease-in-out 3s infinite; }
     .falling-leaf:nth-child(7)  { left: 50%; animation: leaf-fall 21s ease-in-out 11s infinite; }
-    .falling-leaf:nth-child(8)  { left: 58%; animation: leaf-fall-alt 24s ease-in-out 6s infinite; }
+    .falling-leaf:nth-child(8)  { display: none; }
     .falling-leaf:nth-child(9)  { left: 66%; animation: leaf-fall-drift 17s ease-in-out 4s infinite; }
     .falling-leaf:nth-child(10) { left: 74%; animation: leaf-fall 20s ease-in-out 9s infinite; }
-    .falling-leaf:nth-child(11) { left: 82%; animation: leaf-fall-alt 26s ease-in-out 7s infinite; }
+    .falling-leaf:nth-child(11) { display: none; }
     .falling-leaf:nth-child(12) { left: 90%; animation: leaf-fall-drift 22s ease-in-out 13s infinite; }
     .falling-leaf:nth-child(13) { left: 7%;  animation: leaf-fall 19s ease-in-out 10s infinite; }
-    .falling-leaf:nth-child(14) { left: 15%; animation: leaf-fall-alt 21s ease-in-out 15s infinite; }
+    .falling-leaf:nth-child(14) { display: none; }
     .falling-leaf:nth-child(15) { left: 38%; animation: leaf-fall-drift 24s ease-in-out 12s infinite; }
     .falling-leaf:nth-child(16) { left: 55%; animation: leaf-fall 16s ease-in-out 6s infinite; }
-    .falling-leaf:nth-child(17) { left: 70%; animation: leaf-fall-alt 28s ease-in-out 3s infinite; }
+    .falling-leaf:nth-child(17) { display: none; }
     .falling-leaf:nth-child(18) { left: 86%; animation: leaf-fall-drift 20s ease-in-out 9s infinite; }
     .falling-leaf:nth-child(19) { left: 28%; animation: leaf-fall 23s ease-in-out 14s infinite; }
     .falling-leaf:nth-child(20) { left: 62%; animation: leaf-fall-alt 18s ease-in-out 7s infinite; }
@@ -1304,6 +1304,30 @@
       color: var(--cream);
     }
 
+    .guest-names-section {
+      display: none;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.2rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(253, 248, 240, 0.12);
+      border-radius: 4px;
+      background: rgba(253, 248, 240, 0.04);
+    }
+
+    .guest-names-section.visible {
+      display: flex;
+    }
+
+    .guest-names-section .guest-names-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(253, 248, 240, 0.5);
+      margin-bottom: 0.2rem;
+    }
+
     .rsvp-field textarea {
       resize: none;
       height: 80px;
@@ -1563,19 +1587,19 @@
       font-size: 0.8rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--cream);
-      border: 1px solid rgba(253, 248, 240, 0.35);
+      color: var(--espresso);
+      border: 1px solid var(--cream);
       border-radius: 50px;
       cursor: pointer;
-      background: transparent;
+      background: var(--cream);
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .carousel-cta:hover {
-      background: rgba(253, 248, 240, 0.1);
+      background: var(--dusty-rose);
       border-color: var(--dusty-rose);
-      color: var(--dusty-rose);
+      color: var(--cream);
     }
 
     /* ===== SCROLL TO TOP ===== */
@@ -2294,9 +2318,14 @@
               <option value="2" selected>2 — Me + 1</option>
               <option value="3">3</option>
               <option value="4">4</option>
-              <option value="5">5+</option>
+              <option value="5">5</option>
             </select>
           </div>
+        </div>
+
+        <div class="guest-names-section" id="guest-names-section">
+          <span class="guest-names-label">Additional Guest Names</span>
+          <div id="guest-names-inputs"></div>
         </div>
 
         <div class="rsvp-field">
@@ -2637,11 +2666,54 @@
           .catch(function() {});
       }
 
+      // ===== GUEST NAMES DYNAMIC FIELDS =====
+      var guestsSelect       = document.getElementById('rsvp-guests');
+      var guestNamesSection  = document.getElementById('guest-names-section');
+      var guestNamesInputs   = document.getElementById('guest-names-inputs');
+
+      function updateGuestNameFields() {
+        var count = parseInt(guestsSelect.value, 10);
+        var extra = count - 1;
+        guestNamesInputs.innerHTML = '';
+        if (extra > 0) {
+          guestNamesSection.classList.add('visible');
+          for (var i = 1; i <= extra; i++) {
+            var field = document.createElement('div');
+            field.className = 'rsvp-field';
+            field.style.marginBottom = '0';
+            field.innerHTML =
+              '<label for="guest-name-' + i + '">Guest ' + (i + 1) + ' Full Name</label>' +
+              '<input type="text" id="guest-name-' + i + '" name="guest_name_' + i + '" placeholder="Full name" required>';
+            guestNamesInputs.appendChild(field);
+          }
+        } else {
+          guestNamesSection.classList.remove('visible');
+        }
+      }
+
+      guestsSelect.addEventListener('change', updateGuestNameFields);
+      // Run once on load to match default select value (2)
+      updateGuestNameFields();
+
       rsvpForm.addEventListener('submit', function(e) {
         e.preventDefault();
         var name = document.getElementById('rsvp-name').value.trim();
         if (!name) {
           rsvpStatus.textContent = 'Please enter your name.';
+          rsvpStatus.className = 'rsvp-status error';
+          return;
+        }
+        // Validate additional guest names
+        var guestInputEls = guestNamesInputs.querySelectorAll('input[type=text]');
+        var guestNames = [];
+        var missingGuest = false;
+        guestInputEls.forEach(function(inp, idx) {
+          var val = inp.value.trim();
+          if (!val) { missingGuest = true; inp.focus(); }
+          else guestNames.push(val);
+        });
+        if (missingGuest) {
+          rsvpStatus.textContent = 'Please enter the full name of each additional guest.';
           rsvpStatus.className = 'rsvp-status error';
           return;
         }
@@ -2656,10 +2728,11 @@
         rsvpStatus.className = 'rsvp-status';
 
         var data = {
-          name:      name,
-          guests:    document.getElementById('rsvp-guests').value,
-          attending: rsvpForm.querySelector('[name=attending]:checked').value,
-          message:   document.getElementById('rsvp-message').value.trim()
+          name:       name,
+          guests:     guestsSelect.value,
+          guestNames: guestNames,
+          attending:  rsvpForm.querySelector('[name=attending]:checked').value,
+          message:    document.getElementById('rsvp-message').value.trim()
         };
 
         fetch(APPS_SCRIPT_URL, {
